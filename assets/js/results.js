@@ -26,19 +26,35 @@ var img = document.createElement("img");
 divEl.append(img);
 
 if(localStorage.getItem('Quote') != null){
-    quoteEl.text(`${localStorage.getItem('Quote')}` )
-    authorEl.text(`-${localStorage.getItem('Author')}`)
-    img.src = `${localStorage.getItem('posterImage')}`;
+    var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
+    quoteEl.append(fullQuote);
+    var fullAuthor = $(".full-author").html(localStorage.getItem('Author'));
+    authorEl.append(fullAuthor);
+
+    var posterImage = localStorage.getItem('posterImage');
+    $(".poster").css("background-image", `url(${posterImage})`);
 }
 
 randomBtn.click(function() {
-    getQuote()
-    makeImg()
-    quoteEl.text(`${localStorage.getItem('Quote')}`)
-    authorEl.text(`-${localStorage.getItem('Author')}`)
+    getQuote();
+    makeImg();
+    clearPoster();
+
+    var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
+    quoteEl.append(fullQuote);
+    var fullAuthor = $(".full-author").html(localStorage.getItem('Author'));
+    authorEl.append(fullAuthor);
     
-    img.src = `${localStorage.getItem('posterImage')}`;
+    var posterImage = localStorage.getItem('posterImage');
+    $(".poster").css("background-image", `url(${posterImage})`);
 })
+
+
+function clearPoster() {
+    fullQuote.html("");
+    fullAuthor.html("");
+
+}
 
 downloadBtn.click(function(){
     console.log("hrllo");
@@ -46,6 +62,7 @@ downloadBtn.click(function(){
         window.saveAs(blob, "motivated.jpg")
     })
 })
+
 
 
 function makeImg() {
