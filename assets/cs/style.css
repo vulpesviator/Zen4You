@@ -1,5 +1,5 @@
 body {
-background-color: #BEF0FE;
+    background-color: #BEF0FE;
 }
 
 #shiba {
@@ -7,14 +7,16 @@ background-color: #BEF0FE;
 }
 
 .full-quote {
-padding: 20px;
-font-family: 'Gloria Hallelujah', cursive;
-font-size: 3rem;
-color:white;
+    padding: 20px;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 3rem;
+    color: white;
+    text-shadow: black 1px 1px 1px;
 }
 
-#author {
+.full-author {
     color: white;
+    text-shadow: black 1px 1px 1px;
 }
 
 #btn-container {

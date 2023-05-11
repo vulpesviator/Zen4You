@@ -25,9 +25,9 @@ var img = document.createElement("img");
 divEl.append(img);
 
 if(localStorage.getItem('Quote') != null){
-    var fullQuote = $("<h2></h2>").addClass("full-quote").html(localStorage.getItem('Quote'));
+    var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
     quoteEl.append(fullQuote);
-    var fullAuthor = $("<p></p>").addClass("full-author").html(localStorage.getItem('Author'));
+    var fullAuthor = $(".full-author").html(localStorage.getItem('Author'));
     authorEl.append(fullAuthor);
 
     var posterImage = localStorage.getItem('posterImage');
@@ -35,19 +35,24 @@ if(localStorage.getItem('Quote') != null){
 }
 
 randomBtn.click(function() {
-    getQuote()
-    makeImg()
+    getQuote();
+    makeImg();
+    clearPoster();
 
-    var fullQuote = $("<h2></h2>").addClass("full-quote").html(localStorage.getItem('Quote'));
+    var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
     quoteEl.append(fullQuote);
-    var fullAuthor = $("<p></p>").addClass("full-author").html(localStorage.getItem('Author'));
+    var fullAuthor = $(".full-author").html(localStorage.getItem('Author'));
     authorEl.append(fullAuthor);
-    authorEl.text(`-${localStorage.getItem('Author')}`)
+    
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
 })
 
+function clearPoster() {
+    fullQuote.html("");
+    fullAuthor.html("");
 
+}
 
 
 function makeImg() {
