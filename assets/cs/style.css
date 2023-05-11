@@ -49,6 +49,11 @@ body {
     width: 100%;
 }
 
+#customize-btn {
+    margin: 8px 0;
+    width: 100%;
+}
+
 .container {
     background-color: #BEF0FE;
 }

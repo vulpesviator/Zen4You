@@ -1,4 +1,5 @@
 var randomBtn = $('#random-btn')
+var customizeBtn = $('#generate-customized')
 var resultsHTML = './results.html'
 var quoteEl = $('#quote')
 var authorEl = $('#author')
@@ -84,18 +85,22 @@ downloadBtn.click(function(){
 /* Function with IF statements which selects a single api to pull an image from or randomizes and selects from a random one */
 
 /* Function generates image by choosing random API from backgroundIMG object */
-function makeImg() {
+function makeImg(animal) {
     var backgroundImg = {
-        shiba: "http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true",
+        dogs: "http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true",
         birds: "https://shibe.online/api/birds?count=1&urls=true&httpsUrls=true",
         cats: "https://shibe.online/api/cats?count=1&urls=true&httpsUrls=true",
     };
 
-    var cuteImgs = Object.keys(backgroundImg);
-    var randomIndex = Math.floor(Math.random() * cuteImgs.length);
-    var randomImg = cuteImgs[randomIndex];
-    var generateImg = backgroundImg[randomImg];
-
+    var generateImg;
+    if (animal && backgroundImg[animal]) {
+        generateImg = backgroundImg[animal];
+    } else {
+        var cuteImgs = Object.keys(backgroundImg);
+        var randomIndex = Math.floor(Math.random() * cuteImgs.length);
+        var randomImg = cuteImgs[randomIndex];
+        generateImg = backgroundImg[randomImg];
+    }
 
     fetch(generateImg)
     .then(function (response) {
@@ -103,9 +108,18 @@ function makeImg() {
     })
     .then(function (data) {
         console.log(data[0]);
-
         localStorage.setItem('posterImage', data[0]);
+        $(".poster").css("background-image", `url(${data[0]})`);
     });
 }
 
-makeImg();
+customizeBtn.click(function() {
+    var animal = $("#animal").val();
+    var theme = $("#theme").val();
+    var font = $("#font").val();
+    console.log(animal);
+    console.log(theme);
+    console.log(font);
+    makeImg(animal);
+    
+})
