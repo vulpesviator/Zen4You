@@ -25,7 +25,7 @@ var getQuote = function() {
     );
 }
 
-function makeImg() {
+function makeImg(animal) {
     var backgroundImg = {
         shiba: "http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true",
         birds: "https://shibe.online/api/birds?count=1&urls=true&httpsUrls=true",
@@ -35,10 +35,10 @@ function makeImg() {
         picsum: "https://picsum.photos/v2/list?limit=1"
     };
 
-    var cuteImgs = Object.keys(backgroundImg);
-    var randomIndex = Math.floor(Math.random() * cuteImgs.length);
-    var randomImg = cuteImgs[randomIndex];
-    var generateImg = backgroundImg[randomImg];
+    //var cuteImgs = Object.keys(backgroundImg);
+    //var randomIndex = Math.floor(Math.random() * cuteImgs.length);
+    //var randomImg = cuteImgs[randomIndex];
+    var generateImg = backgroundImg[animal];
 
 
     fetch(generateImg)
@@ -57,12 +57,21 @@ function makeImg() {
 
 randomBtn.click(function() {
     console.log("hello");
+    const animal = $("animal").val
+    if(animal){
     location.replace(resultsHTML) 
     getQuote()
-    makeImg()
+    makeImg(animal)
     quoteEl.text(localStorage.getItem('quote'))
+    }
 })
 
+//initializes Materialize forms
+$(document).ready(function() {
+    $('select').formSelect();
+ });
+
+ 
 
 
 
