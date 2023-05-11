@@ -10,6 +10,11 @@ var randomBtn = $('#random-btn')
 var resultsHTML = './results.html'
 var quoteEl = $('#quote')
 
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.querySelectorAll(".modal")
+    M.Modal.init(modal)
+    })    
+
 var getQuote = function() {
     var category = 'inspirational'
     $.ajax({
