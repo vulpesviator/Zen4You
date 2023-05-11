@@ -6,14 +6,15 @@ background-color: #BEF0FE;
     text-align: center;
 }
 
-#quote {
+.full-quote {
 padding: 20px;
 font-family: 'Gloria Hallelujah', cursive;
 font-size: 3rem;
+color:white;
 }
 
 #author {
-
+    color: white;
 }
 
 #btn-container {
@@ -40,4 +41,12 @@ h1 {
     font-size: 2rem;
     font-weight: 500;
     text-align: center;
+}
+
+.poster {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 75vh;
+    border: 48px solid black;
 }
