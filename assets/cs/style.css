@@ -7,13 +7,15 @@ background-color: #BEF0FE;
 }
 
 #quote {
-padding: 20px;
+padding-top: 20px;
 font-family: 'Gloria Hallelujah', cursive;
 font-size: 3rem;
 }
 
 #author {
-
+padding-bottom: 20px;
+font-family: 'Gloria Hallelujah', cursive;
+font-size: 3rem;
 }
 
 #btn-container {
