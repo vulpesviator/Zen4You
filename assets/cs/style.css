@@ -23,7 +23,7 @@ body {
 
 .full-quote {
     padding: 20px;
-    font-family: 'Gloria Hallelujah', cursive;
+    /* font-family: 'Gloria Hallelujah', cursive; */
     font-size: 3rem;
     color: white;
     text-shadow: black 3px 3px 3px;
@@ -33,7 +33,7 @@ body {
     color: white;
     text-shadow: black 3px 3px 3px;
     padding-top: 20px;
-    font-family: 'Gloria Hallelujah', cursive;
+    /* font-family: 'Gloria Hallelujah', cursive; */
     font-size: 3rem;
 }
 

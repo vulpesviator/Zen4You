@@ -7,6 +7,21 @@ var imageEL = $('#image')
 var divEl = $('#img-container')
 var downloadBtn = $('#download')
 
+/* Initializes Materialize Forms */
+$(document).ready(function() {
+    $('select').formSelect();
+ });
+
+
+/* Modal event listener */
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.querySelectorAll(".modal")
+    M.Modal.init(modal)
+    });
+    
+
+/* Generate quote either randomly or with category based on dropdown input */
+
 /* Quote generation function */
 var getQuote = function() {
     var category = 'inspirational'
@@ -22,6 +37,8 @@ var getQuote = function() {
         },  
     );
 }
+
+/* Function which appends a different font-family to the .full-quote and .full-author classes based on dropdown value */
 
 /* Displays quote and image saved in local storage */
 if(localStorage.getItem('Quote') != null){
@@ -64,6 +81,7 @@ downloadBtn.click(function(){
     })
 })
 
+/* Function with IF statements which selects a single api to pull an image from or randomizes and selects from a random one */
 
 /* Function generates image by choosing random API from backgroundIMG object */
 function makeImg() {
