@@ -4,7 +4,8 @@ var quoteEl = $('#quote')
 var authorEl = $('#author')
 var bodyEl = $('body');
 var imageEL = $('#image')
-var divEl = $('#btn-container')
+var divEl = $('#img-container')
+var downloadBtn = $('#download')
 
 var getQuote = function() {
     var category = 'inspirational'
@@ -48,11 +49,20 @@ randomBtn.click(function() {
     $(".poster").css("background-image", `url(${posterImage})`);
 })
 
+
 function clearPoster() {
     fullQuote.html("");
     fullAuthor.html("");
 
 }
+
+downloadBtn.click(function(){
+    console.log("hrllo");
+    domtoimage.toBlob(document.getElementById("img-container")).then(function(blob) {
+        window.saveAs(blob, "motivated.jpg")
+    })
+})
+
 
 
 function makeImg() {
