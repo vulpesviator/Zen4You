@@ -7,6 +7,7 @@ var imageEL = $('#image')
 var divEl = $('#img-container')
 var downloadBtn = $('#download')
 
+/* Quote generation function */
 var getQuote = function() {
     var category = 'inspirational'
     $.ajax({
@@ -22,9 +23,7 @@ var getQuote = function() {
     );
 }
 
-var img = document.createElement("img");
-divEl.append(img);
-
+/* Displays quote and image saved in local storage */
 if(localStorage.getItem('Quote') != null){
     var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
     quoteEl.append(fullQuote);
@@ -35,6 +34,7 @@ if(localStorage.getItem('Quote') != null){
     $(".poster").css("background-image", `url(${posterImage})`);
 }
 
+/* Event listener for Generate button */
 randomBtn.click(function() {
     getQuote();
     makeImg();
@@ -49,22 +49,23 @@ randomBtn.click(function() {
     $(".poster").css("background-image", `url(${posterImage})`);
 })
 
-
+/* Removes previous image and quote from poster div */
 function clearPoster() {
     fullQuote.html("");
     fullAuthor.html("");
 
 }
 
+/* Downloads poster as jpg */
 downloadBtn.click(function(){
     console.log("hrllo");
-    domtoimage.toBlob(document.getElementById("img-container")).then(function(blob) {
+    domtoimage.toBlob(document.getElementById("poster-container")).then(function(blob) {
         window.saveAs(blob, "motivated.jpg")
     })
 })
 
 
-
+/* Function generates image by choosing random API from backgroundIMG object */
 function makeImg() {
     var backgroundImg = {
         shiba: "http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true",
