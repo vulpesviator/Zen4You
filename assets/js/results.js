@@ -45,6 +45,7 @@ randomBtn.click(function() {
     getQuote();
     makeImg();
     clearPoster();
+    chooseFont();
 
     var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
     quoteEl.append(fullQuote);
@@ -96,3 +97,12 @@ function makeImg() {
 }
 
 makeImg();
+
+function chooseFont(){
+    var fontArray = ["Roboto", "Poppins", "Dancing Script", "Indie Flower", "Soace Mono"]
+    var index = Math.floor(Math.random() * fontArray.length)
+    var font = fontArray[index]
+
+    $(".full-quote").css("font-family", font)
+    $(".full-author").css("font-family", font)
+}

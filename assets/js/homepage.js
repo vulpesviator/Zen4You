@@ -58,10 +58,11 @@ randomBtn.click(function() {
     console.log("hello");
     const animal = $("animal").val
     if(animal){
-    location.replace(resultsHTML) 
-    getQuote()
-    makeImg(animal)
-    quoteEl.text(localStorage.getItem('quote'))
+        chooseFont();
+        location.replace(resultsHTML) 
+        getQuote()
+        makeImg(animal)
+        quoteEl.text(localStorage.getItem('quote'))
     }
 })
 
@@ -82,6 +83,12 @@ $(document).ready(function() {
 
 $('.modal-close').click(function(event){
     event.preventDefault();
+    chooseFont();
+    location.replace(resultsHTML) 
+
+})
+
+function chooseFont(){
     var fontInput = $("#font option:selected").val();
     var allFonts = $('#font');
 
@@ -96,10 +103,7 @@ $('.modal-close').click(function(event){
     }
 
     localStorage.setItem("font-family", fontInput)
-    location.replace(resultsHTML) 
-
-})
-
+}
 // customFont();
 
     
