@@ -83,6 +83,9 @@ if(localStorage.getItem('Quote') != null){
 
 /* Event listener for Generate button */
 randomBtn.click(function() {
+    localStorage.removeItem('Quote');
+    localStorage.removeItem('Author');
+    localStorage.removeItem('posterImage');
     getQuote();
     makeImg();
     clearPoster();
@@ -142,6 +145,9 @@ function makeImg(animal) {
 
 /* Listener for generate button on the customizable modal to pass values to each function  */
 customizeBtn.click(function() {
+    localStorage.removeItem('Quote');
+    localStorage.removeItem('Author');
+    localStorage.removeItem('posterImage');
     var animal = $("#animal").val();
     var theme = $("#theme").val();
     var font = $("#font").val();
