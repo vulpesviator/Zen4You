@@ -89,14 +89,6 @@ randomBtn.click(function() {
     getQuote();
     makeImg();
     clearPoster();
-
-    /* fullQuote.html(localStorage.getItem('Quote'));
-    quoteEl.append(fullQuote);
-    fullAuthor.html(localStorage.getItem('Author'));
-    authorEl.append(fullAuthor); */
-    
-    /* var posterImage = localStorage.getItem('posterImage');
-    $(".poster").css("background-image", `url(${posterImage})`); */
 })
 
 /* Removes previous image and quote from poster div */
