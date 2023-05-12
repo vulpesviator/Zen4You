@@ -128,6 +128,7 @@ randomBtn.click(function() {
         makeImg(animal)
         quoteEl.text(localStorage.getItem('quote'))
     }
+});
 
 /* Listener for generate button on the customizable modal to pass values to each function  */
 customizeBtn.click(function() {

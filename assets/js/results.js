@@ -48,8 +48,6 @@ var getQuote = function(theme) {
         category = categories[categoryKeys[randomIndex]];
     }
 
-var getQuote = function() {
-    var category = 'inspirational'
     $.ajax({
         method: 'GET',
         url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
