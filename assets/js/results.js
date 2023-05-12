@@ -1,12 +1,14 @@
 var randomBtn = $('#random-btn')
 var customizeBtn = $('#generate-customized')
 var resultsHTML = './results.html'
+var fullQuote = $(".full-quote");
+var fullAuthor = $(".full-author");
 var quoteEl = $('#quote')
 var authorEl = $('#author')
 var bodyEl = $('body');
 var imageEL = $('#image')
 var divEl = $('#img-container')
-var downloadBtn = $('#download')
+var downloadBtn = $('#download-btn')
 
 /* Initializes Materialize Forms */
 $(document).ready(function() {
@@ -24,17 +26,40 @@ document.addEventListener("DOMContentLoaded", function() {
 /* Generate quote either randomly or with category based on dropdown input */
 
 /* Quote generation function */
-var getQuote = function() {
-    var category = 'inspirational'
+var getQuote = function(theme) {
+    
+    var categories = {
+        inspirational: 'inspirational', 
+        courage: 'courage',
+        empathy: 'empathy',
+        friendship: 'friendship', 
+        imagination: 'imagination', 
+        happiness: 'happiness', 
+        knowledge: 'knowledge'
+    };
+    
+    var category;
+    
+    if (theme && categories.hasOwnProperty(theme)) {
+        category = categories[theme];
+    } else {
+        var categoryKeys = Object.keys(categories);
+        var randomIndex = Math.floor(Math.random() * categoryKeys.length);
+        category = categories[categoryKeys[randomIndex]];
+    }
+
     $.ajax({
         method: 'GET',
         url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
         headers: { 'X-Api-Key': 'v0tccXcwsiP+3vSXv3/lOg==q1GzyzemvaKPl4ad'},
         contentType: 'application/json',
     }).then(function(result) {
-            /* console.log(result[0].quote); */
             localStorage.setItem('Quote', result[0].quote)
+            fullQuote.html(result[0].quote);
+            quoteEl.append(fullQuote);
             localStorage.setItem('Author', result[0].author)
+            fullAuthor.html(result[0].author);
+            authorEl.append(fullAuthor);
         },  
     );
 }
@@ -43,14 +68,18 @@ var getQuote = function() {
 
 /* Displays quote and image saved in local storage */
 if(localStorage.getItem('Quote') != null){
-    var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
+    fullQuote.html(localStorage.getItem('Quote'));
     quoteEl.append(fullQuote);
-    var fullAuthor = $(".full-author").html(localStorage.getItem('Author'));
+    fullAuthor.html(localStorage.getItem('Author'));
     authorEl.append(fullAuthor);
 
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
+} else {
+    getQuote();
+    makeImg();
 }
+
 
 /* Event listener for Generate button */
 randomBtn.click(function() {
@@ -58,13 +87,13 @@ randomBtn.click(function() {
     makeImg();
     clearPoster();
 
-    var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
+    /* fullQuote.html(localStorage.getItem('Quote'));
     quoteEl.append(fullQuote);
-    var fullAuthor = $(".full-author").html(localStorage.getItem('Author'));
-    authorEl.append(fullAuthor);
+    fullAuthor.html(localStorage.getItem('Author'));
+    authorEl.append(fullAuthor); */
     
-    var posterImage = localStorage.getItem('posterImage');
-    $(".poster").css("background-image", `url(${posterImage})`);
+    /* var posterImage = localStorage.getItem('posterImage');
+    $(".poster").css("background-image", `url(${posterImage})`); */
 })
 
 /* Removes previous image and quote from poster div */
@@ -82,9 +111,7 @@ downloadBtn.click(function(){
     })
 })
 
-/* Function with IF statements which selects a single api to pull an image from or randomizes and selects from a random one */
-
-/* Function generates image by choosing random API from backgroundIMG object */
+/* Function that selects a single api to pull an image from or selects from a random one */
 function makeImg(animal) {
     var backgroundImg = {
         dogs: "http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true",
@@ -113,6 +140,7 @@ function makeImg(animal) {
     });
 }
 
+/* Listener for generate button on the customizable modal to pass values to each function  */
 customizeBtn.click(function() {
     var animal = $("#animal").val();
     var theme = $("#theme").val();
@@ -121,5 +149,5 @@ customizeBtn.click(function() {
     console.log(theme);
     console.log(font);
     makeImg(animal);
-    
+    getQuote(theme);
 })
