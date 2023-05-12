@@ -86,3 +86,38 @@ header {
 .dropdown-content li>a, .dropdown-content li>span {
     color: #ff9800;
 }
+
+.float {
+    transform: translatey(0);
+    animation: float 1.8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translatey(0)
+    }
+
+    45% {
+        transform: translatey(-15px)
+    }
+}
+
+.shadow {
+    display: block;
+    width: 20%;
+    height: 6px;
+    margin: 9px auto 40px;
+    border-radius: 6px;
+    background: rgba(0,0,0,.1);
+    animation: shadow 1.8s ease-in-out infinite;
+}
+
+@keyframes shadow {
+    0%,100% {
+        width: 12%
+    }
+
+    45% {
+        width: 5%
+    }
+}
