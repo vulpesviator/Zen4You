@@ -8,57 +8,119 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+
 
     <title>Motivational Poster Generator Results</title>
     <link rel="stylesheet" href="./assets/cs/style.css">
 </head>
 
 <body>
-  <header>
-      <nav>
-        <div class="nav-wrapper orange">
-          <a href="index.html" class="brand-logo"><img class="logo" src="./assets/pictures/zen4u100x100_360.png" alt="Zen4You"></a>
-          <ul id="nav-mobile" class="right">
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div>
-      </nav>
-  </header>
-  <div class="container">
-    <h1>Results</h1>
-    <div>
-        <div class="row" id="btn-container">
-            <div class="col s12 orange lighten-5"><a id="random-btn" class="btn-large orange">Generate</a></div>
-        </div>
-        <div id="poster-container" class="hoverable poster valign-wrapper">
-        <div class="col s12 center-align">
-            <div class="">
-                <div id="quote">
-                    <h2 class="full-quote"></h2>
-                </div>
-                <div id="author">
-                    <p class="full-author"></p>
+    <header>
+        <nav>
+            <div class="nav-wrapper orange">
+                <a href="index.html" class="brand-logo"><img class="logo" src="./assets/pictures/zen4u100x100_360.png"
+                        alt="Zen4You"></a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Results</h1>
+        <div>
+            <div class="row orange lighten-5" id="btn-container">
+                <div class="col s12"><a class="orange btn-large modal-trigger col s12" href="#modal1">Customize</a></div>
+                <div class="col s12"><a id="random-btn" class="btn-large orange">Generate</a></div>
+            </div>
+            <!-- Div holds the poster elements -->
+            <div id="poster-container" class="card-panel hoverable poster valign-wrapper">
+                <div class="col s12 center-align">
+                    <div class="">
+                        <div id="quote">
+                            <h2 class="full-quote"></h2>
+                        </div>
+                        <div id="author">
+                            <p class="full-author"></p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            <!-- END div that holds poster elements -->
+            <div class="row orange lighten-5" id="btn-container">
+                <div class="col s12"><a id="download-btn" class="btn-large orange">Download</a></div>
+            </div>
         </div>
-        </div>
-    </div>
-    
-    <div class="btn orange valign-wrapper center-align p" id="download">Download Your Poster</div>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <div class="row">
+                    <div class="col s4">
+                        <div class="input-field col s12">
+                            <select id="animal">
+                              <option value="" disabled selected>Select an animal</option>
+                              <option value="dogs">Dogs</option>
+                              <option value="cats">Cats</option>
+                              <option value="birds">Birds</option>
+                            </select>
+                            <label>Animals</label>
+                        </div>
+                    </div>
+                    <div class="col s4">
+                        <div class="input-field col s12">
+                            <select id="theme">
+                              <option value="" disabled selected>Select a theme</option>
+                              <option value="inspiration">Inspiration</option>
+                              <option value="courage">Courage</option>
+                              <option value="empathy">Empathy</option>
+                              <option value="imagination">Imagination</option>
+                              <option value="happiness">Happiness</option>
+                              <option value="knowledge">Knowledge</option>
+                            </select>
+                            <label>Themes</label>
+                        </div>
+                    </div>
+                    <div class="col s4">
+                        <div class="input-field col s12">
+                            <select id="font">
+                              <option value="" disabled selected>Select a font</option>
+                              <option value="serif">Serif</option>
+                              <option value="sans serif">Sans Serif</option>
+                              <option value="handwriting">Handwriting</option>
+                              <option value="display">Display</option>
+                              <option value="monospace">Monospace</option>
+                            </select>
+                            <label>Fonts</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer row orange lighten-5">
+                <a href="#!" id="generate-customized" class="modal-close btn-large orange">Generate</a>
+            </div>
+         </div>
     </div>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js" integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js" integrity="sha512-UNbeFrHORGTzMn3HTt00fvdojBYHLPxJbLChmtoyDwB6P9hX5mah3kMKm0HHNx/EvSPJt14b+SlD8xhuZ4w9Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./assets/js/results.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"
+            integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"
+            integrity="sha512-UNbeFrHORGTzMn3HTt00fvdojBYHLPxJbLChmtoyDwB6P9hX5mah3kMKm0HHNx/EvSPJt14b+SlD8xhuZ4w9Lg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+        <script src="./assets/js/results.js"></script>
 </body>
 
 </html>

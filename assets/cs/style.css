@@ -23,14 +23,14 @@ body {
     overflow: hidden;
 }
 
-#author {
+/* #author {
     
-}
+} */
 
 .full-quote {
     padding: 20px;
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 3rem;
+    font-size: 3.5vw;
     color: white;
     text-shadow: black 3px 3px 3px;
 }
@@ -40,7 +40,7 @@ body {
     text-shadow: black 3px 3px 3px;
     padding-top: 20px;
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 3rem;
+    font-size: 1.25vw;
 }
 
 
@@ -55,12 +55,32 @@ body {
     width: 100%;
 }
 
+#customize-btn {
+    margin: 8px 0;
+    width: 100%;
+}
+
+#download-btn {
+    margin: 8px 0;
+    width: 100%;
+}
+
+#generate-customized {
+    margin: 8px 0;
+    width: 100%;
+}
+
 .container {
     background-color: #BEF0FE;
 }
 
 .card {
     padding: 0px;
+}
+
+.modal { 
+    max-height: 100%; 
+    overflow: visible;
 }
 
 h1 {
