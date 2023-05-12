@@ -48,6 +48,8 @@ var getQuote = function(theme) {
         category = categories[categoryKeys[randomIndex]];
     }
 
+var getQuote = function() {
+    var category = 'inspirational'
     $.ajax({
         method: 'GET',
         url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
@@ -89,6 +91,15 @@ randomBtn.click(function() {
     getQuote();
     makeImg();
     clearPoster();
+    chooseFont();
+
+    var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
+    quoteEl.append(fullQuote);
+    var fullAuthor = $(".full-author").html(localStorage.getItem('Author'));
+    authorEl.append(fullAuthor);
+    
+    var posterImage = localStorage.getItem('posterImage');
+    $(".poster").css("background-image", `url(${posterImage})`);
 })
 
 /* Removes previous image and quote from poster div */
@@ -135,6 +146,16 @@ function makeImg(animal) {
     });
 }
 
+makeImg();
+
+function chooseFont(){
+    var fontArray = ["Roboto", "Poppins", "Dancing Script", "Indie Flower", "Soace Mono"]
+    var index = Math.floor(Math.random() * fontArray.length)
+    var font = fontArray[index]
+
+    $(".full-quote").css("font-family", font)
+    $(".full-author").css("font-family", font)
+}
 /* Listener for generate button on the customizable modal to pass values to each function  */
 customizeBtn.click(function() {
     localStorage.removeItem('Quote');

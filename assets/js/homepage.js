@@ -118,6 +118,17 @@ function makeImg(animal) {
     });
 }
 
+randomBtn.click(function() {
+    console.log("hello");
+    const animal = $("animal").val
+    if(animal){
+        chooseFont();
+        location.replace(resultsHTML) 
+        getQuote()
+        makeImg(animal)
+        quoteEl.text(localStorage.getItem('quote'))
+    }
+
 /* Listener for generate button on the customizable modal to pass values to each function  */
 customizeBtn.click(function() {
     var animal = $("#animal").val();
@@ -128,7 +139,29 @@ customizeBtn.click(function() {
 })
 
 
+$('.modal-close').click(function(event){
+    event.preventDefault();
+    chooseFont();
+    location.replace(resultsHTML) 
 
+})
 
+function chooseFont(){
+    var fontInput = $("#font option:selected").val();
+    var allFonts = $('#font');
+
+    var fontArray = [];
+    for (var i = 0; i < allFonts.children('#font-style').length; i++){
+        fontArray[i] = allFonts.children('#font-style')[i].value;
+    }
+
+    if(fontInput == ''){
+        var index = Math.floor(Math.random() * fontArray.length)
+        fontInput = fontArray[index]
+    }
+
+    localStorage.setItem("font-family", fontInput)
+}
+// customFont();
 
     
