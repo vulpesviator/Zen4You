@@ -92,6 +92,7 @@ downloadBtn.click(function(){
 })
 
 /* Function that selects a single api to pull an image from or selects from a random one */
+
 function makeImg(animal) {
     var backgroundImg = {
         dogs: "http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true",
@@ -139,6 +140,12 @@ customizeBtn.click(function() {
     getQuote(theme);
 })
 
+//initializes Materialize forms
+$(document).ready(function() {
+    $('select').formSelect();
+ });
+
+ 
 
 $('.modal-close').click(function(event){
     event.preventDefault();
