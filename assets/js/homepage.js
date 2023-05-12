@@ -80,7 +80,26 @@ $(document).ready(function() {
 // var bodyEl = $('body');
 
 
+$('.modal-close').click(function(event){
+    event.preventDefault();
+    var fontInput = $("#font option:selected").val();
+    var allFonts = $('#font');
 
+    var fontArray = [];
+    for (var i = 0; i < allFonts.children('#font-style').length; i++){
+        fontArray[i] = allFonts.children('#font-style')[i].value;
+    }
 
+    if(fontInput == ''){
+        var index = Math.floor(Math.random() * fontArray.length)
+        fontInput = fontArray[index]
+    }
+
+    localStorage.setItem("font-family", fontInput)
+    location.replace(resultsHTML) 
+
+})
+
+// customFont();
 
     

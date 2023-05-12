@@ -7,6 +7,12 @@ var imageEL = $('#image')
 var divEl = $('#img-container')
 var downloadBtn = $('#download')
 
+if (localStorage.getItem('font-family') != null){
+    var font = localStorage.getItem('font-family')
+    $(".full-quote").css("font-family", font)
+    $(".full-author").css("font-family", font)
+}
+
 var getQuote = function() {
     var category = 'inspirational'
     $.ajax({
