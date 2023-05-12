@@ -58,7 +58,7 @@ function clearPoster() {
 
 downloadBtn.click(function(){
     console.log("hrllo");
-    domtoimage.toBlob(document.getElementById("img-container")).then(function(blob) {
+    domtoimage.toBlob(document.getElementById("poster-container")).then(function(blob) {
         window.saveAs(blob, "motivated.jpg")
     })
 })
