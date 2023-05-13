@@ -50,6 +50,12 @@ body {
     font-size: 2rem;
 }
 
+#options {
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+}
+
 #random-btn {
     margin: 8px 0;
     width: 100%;
@@ -68,6 +74,11 @@ body {
 #generate-customized {
     margin: 8px 0;
     width: 100%;
+}
+
+#change-font, #generate-image, #generate-quote {
+    margin: 10px 0;
+    width: 80%;
 }
 
 .container {

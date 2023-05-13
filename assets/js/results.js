@@ -1,14 +1,17 @@
-var randomBtn = $('#random-btn')
-var customizeBtn = $('#generate-customized')
+var randomBtn = $('#random-btn');
+var customizeBtn = $('#generate-customized');
+var generateImgBtn = $('#generate-image');
+var generateQuoteBtn = $('#generate-quote');
+var changeFontBtn = $('#change-font');
 var resultsHTML = './results.html'
 var fullQuote = $(".full-quote");
 var fullAuthor = $(".full-author");
-var quoteEl = $('#quote')
-var authorEl = $('#author')
+var quoteEl = $('#quote');
+var authorEl = $('#author');
 var bodyEl = $('body');
-var imageEL = $('#image')
-var divEl = $('#img-container')
-var downloadBtn = $('#download-btn')
+var imageEL = $('#image');
+var divEl = $('#img-container');
+var downloadBtn = $('#download-btn');
 
 /* Initializes Materialize Forms */
 $(document).ready(function() {
@@ -167,4 +170,22 @@ customizeBtn.click(function() {
     console.log(font);
     makeImg(animal);
     getQuote(theme);
+});
+
+generateImgBtn.click(function() {
+    localStorage.removeItem('posterImage');
+    var animal = $("#animal").val();
+    makeImg(animal);
+});
+
+generateQuoteBtn.click(function() {
+    localStorage.removeItem('Quote');
+    localStorage.removeItem('Author');
+    var theme = $("#theme").val();
+    getQuote(theme);
+});
+
+changeFontBtn.click(function() {
+    chooseFont()
+    console.log(font);
 })
