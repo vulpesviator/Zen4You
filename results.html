@@ -40,9 +40,76 @@
     <div class="container">
         <h1>Results</h1>
         <div>
-            <div class="row orange lighten-5" id="btn-container">
-                <div class="col s12"><a id="random-btn" class="btn-large orange">Generate Random Zen</a></div>
+            <!-- Modal with configuration dropdowns -->
+        <div id="options" class="row orange lighten-5">
+            <div class="center-align">
+            <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header options">
+                    <i class="material-icons">tune</i>
+                    Poster Options
+                </div>
+                  <div class="collapsible-body">
+                    <div class="row">
+                        <div class="col s4">
+                            <div class="input-field col s12">
+                                <select id="animal">
+                                  <option value="" disabled selected>Select an animal</option>
+                                  <option value="dogs">Dogs</option>
+                                  <option value="cats">Cats</option>
+                                  <option value="birds">Birds</option>
+                                </select>
+                                <label>Animals</label>
+                            </div>
+                            <div class="row">
+                                <a href="#!" id="generate-image" class="modal-close btn-large blue">Generate New Image</a>
+                            </div>
+                        </div>
+                        <div class="col s4">
+                            <div class="input-field col s12">
+                                <select id="theme">
+                                  <option value="" disabled selected>Select a theme</option>
+                                  <option value="inspiration">Inspiration</option>
+                                  <option value="courage">Courage</option>
+                                  <option value="empathy">Empathy</option>
+                                  <option value="imagination">Imagination</option>
+                                  <option value="happiness">Happiness</option>
+                                  <option value="knowledge">Knowledge</option>
+                                </select>
+                                <label>Themes</label>
+                            </div>
+                            <div class="row">
+                                <a href="#!" id="generate-quote" class="modal-close btn-large blue">Generate New Quote</a>
+                            </div>
+                        </div>
+                        <div class="col s4">
+                            <div class="input-field col s12">
+                                <select id="font">
+                                  <option value="" disabled selected>Select a font</option>
+                                  <option value="Roboto" id="font-style">Roboto</option>
+                                  <option value="Poppins" id="font-style">Poppins</option>
+                                  <option value="Dancing Script" id="font-style">Dancing Script</option>
+                                  <option value="Indie Flower" id="font-style">Indie Flower</option>
+                                  <option value="Space Mono" id="font-style">Space Mono</option>
+                                </select>
+                                <label>Fonts</label>
+                            </div>
+                            <div class="row">
+                                <a href="#!" id="change-font" class="modal-close btn-large blue">Change Font</a>
+                            </div>
+                        </div>
+                    </div>
+             
+                <div class="row">
+                    <a href="#!" id="generate-customized" class="modal-close btn-large orange">Generate Selected Options</a>
+                </div>
+                </div>
+                </li>
             </div>
+                
+                
+         </div>
+         <!-- END Modal with configuration dropdowns -->
             <!-- Div holds the poster elements -->
             <div id="poster-container" class="card-panel hoverable poster valign-wrapper">
                 <div class="col s12 center-align">
@@ -59,69 +126,12 @@
             </div>
             <!-- END div that holds poster elements -->
             <div class="row orange lighten-5" id="btn-container">
+                <div class="col s12"><a id="random-btn" class="btn-large orange">Generate Random Zen</a></div>
                 <div class="col s12"><a id="download-btn" class="btn-large orange">Download</a></div>
             </div>
         </div>
         
-        <!-- Modal with configuration dropdowns -->
-        <div id="options" class="row orange lighten-5">
-            <div class="center-align">
-                <h4>Poster Options</h4>
-                <div class="row">
-                    <div class="col s4">
-                        <div class="input-field col s12">
-                            <select id="animal">
-                              <option value="" disabled selected>Select an animal</option>
-                              <option value="dogs">Dogs</option>
-                              <option value="cats">Cats</option>
-                              <option value="birds">Birds</option>
-                            </select>
-                            <label>Animals</label>
-                        </div>
-                        <div class="modal-footer row lighten-5">
-                            <a href="#!" id="generate-image" class="modal-close btn-large blue">Generate New Image</a>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <div class="input-field col s12">
-                            <select id="theme">
-                              <option value="" disabled selected>Select a theme</option>
-                              <option value="inspiration">Inspiration</option>
-                              <option value="courage">Courage</option>
-                              <option value="empathy">Empathy</option>
-                              <option value="imagination">Imagination</option>
-                              <option value="happiness">Happiness</option>
-                              <option value="knowledge">Knowledge</option>
-                            </select>
-                            <label>Themes</label>
-                        </div>
-                        <div class="modal-footer row lighten-5">
-                            <a href="#!" id="generate-quote" class="modal-close btn-large blue">Generate New Quote</a>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <div class="input-field col s12">
-                            <select id="font">
-                              <option value="" disabled selected>Select a font</option>
-                              <option value="Roboto" id="font-style">Roboto</option>
-                              <option value="Poppins" id="font-style">Poppins</option>
-                              <option value="Dancing Script" id="font-style">Dancing Script</option>
-                              <option value="Indie Flower" id="font-style">Indie Flower</option>
-                              <option value="Space Mono" id="font-style">Space Mono</option>
-                            </select>
-                            <label>Fonts</label>
-                        </div>
-                        <div class="modal-footer row lighten-5">
-                            <a href="#!" id="change-font" class="modal-close btn-large blue">Change Font</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer row lighten-5">
-                <a href="#!" id="generate-customized" class="modal-close btn-large orange">Generate Selected Options</a>
-            </div>
-         </div>
-         <!-- END Modal with configuration dropdowns -->
+        
     </div>
 
         <!-- Compiled and minified JavaScript -->
