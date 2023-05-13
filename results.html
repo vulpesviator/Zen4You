@@ -41,8 +41,7 @@
         <h1>Results</h1>
         <div>
             <div class="row orange lighten-5" id="btn-container">
-                <div class="col s12"><a class="orange btn-large modal-trigger col s12" href="#modal1">Customize</a></div>
-                <div class="col s12"><a id="random-btn" class="btn-large orange">Generate</a></div>
+                <div class="col s12"><a id="random-btn" class="btn-large orange">Generate Random Zen</a></div>
             </div>
             <!-- Div holds the poster elements -->
             <div id="poster-container" class="card-panel hoverable poster valign-wrapper">
@@ -65,9 +64,9 @@
         </div>
         
         <!-- Modal with configuration dropdowns -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Modal Header</h4>
+        <div id="options" class="row">
+            <div class="center-align">
+                <h4>Poster Options</h4>
                 <div class="row">
                     <div class="col s4">
                         <div class="input-field col s12">
@@ -78,6 +77,9 @@
                               <option value="birds">Birds</option>
                             </select>
                             <label>Animals</label>
+                        </div>
+                        <div class="modal-footer row lighten-5">
+                            <a href="#!" id="generate-image" class="modal-close btn-large orange">Generate New Image</a>
                         </div>
                     </div>
                     <div class="col s4">
@@ -93,6 +95,9 @@
                             </select>
                             <label>Themes</label>
                         </div>
+                        <div class="modal-footer row lighten-5">
+                            <a href="#!" id="generate-quote" class="modal-close btn-large orange">Generate New Quote</a>
+                        </div>
                     </div>
                     <div class="col s4">
                         <div class="input-field col s12">
@@ -106,11 +111,14 @@
                             </select>
                             <label>Fonts</label>
                         </div>
+                        <div class="modal-footer row lighten-5">
+                            <a href="#!" id="change-font" class="modal-close btn-large orange">Change Font</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer row orange lighten-5">
-                <a href="#!" id="generate-customized" class="modal-close btn-large orange">Generate</a>
+            <div class="modal-footer row lighten-5">
+                <a href="#!" id="generate-customized" class="modal-close btn-large orange">Generate Selected Options</a>
             </div>
          </div>
          <!-- END Modal with configuration dropdowns -->
