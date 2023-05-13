@@ -126,11 +126,13 @@ header {
 
 .options {
     font-size: 1em;
+    color: #fff;
 }
 
 .collapsible-header i {
-    height: 42px;
-    line-height: 42px;
+    height: 1.75em;
+    line-height: 1.75em;
+    color: white;
 }
 
 .collapsible-body {
