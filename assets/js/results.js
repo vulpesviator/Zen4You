@@ -190,6 +190,7 @@ generateQuoteBtn.click(function() {
 });
 
 changeFontBtn.click(function() {
-    chooseFont()
+    var font = $("#font").val();
+    chooseFont(font);
     console.log(font);
 })
