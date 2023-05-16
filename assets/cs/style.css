@@ -212,3 +212,8 @@ header {
 .bottom-right {
     position: absolute;
 }
+
+.carousel {
+    height: 50vh;
+    perspective: 1400px;
+}

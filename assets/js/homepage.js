@@ -34,6 +34,20 @@ document.addEventListener("DOMContentLoaded", function() {
 $(document).ready(function(){
     $('.collapsible').collapsible();
   });
+
+/* Carousel javascript */
+$(document).ready(function(){
+    $('.carousel').carousel({
+        padding: 0,
+        shift: 5,
+        indicators: true,
+    });
+    autoplay();
+function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 2000);
+}
+});
     
 
 /* Generate quote either randomly or with category based on dropdown input */
@@ -164,19 +178,4 @@ function chooseFont(){
 
     localStorage.setItem("font-family", fontInput)
 }
-// customFont();
 
-// carousel
-var options = ""
-var instance = ""
-
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, options);
-    
-    setInterval(function() {
- 
-        $('#carousel').carousel('next');
-     
-      }, 1500);   
-});
