@@ -229,10 +229,14 @@ changePositionBtn.click(function() {
 
 changeBorderBtn.click(function() {
     var borderColor = $("#border-color").val();
-    console.log(borderColor);
+    $('#poster-container').css("border-color", borderColor)
+/*     $('#poster-container').css("border-style", "dotted")
+ */    console.log(borderColor);
 })
 
 changeFontColorBtn.click(function() {
     var fontColor = $("#font-color").val();
+    $('.full-author').css("color", fontColor)
+    $('.full-quote').css("color", fontColor)
     console.log(fontColor);
 })
