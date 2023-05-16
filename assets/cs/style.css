@@ -23,12 +23,7 @@ body {
     overflow: hidden;
 }
 
-/* #author {
-    
-} */
-
 .full-quote {
-    padding: 20px;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 3.5vw;
     color: white;
@@ -46,6 +41,19 @@ body {
 
 #btn-container {
     padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+}
+
+#options-container {
+    padding-top: 5rem;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+}
+
+#options {
+    padding: 0 0.75rem;
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
 }
@@ -68,6 +76,11 @@ body {
 #generate-customized {
     margin: 8px 0;
     width: 100%;
+}
+
+#change-font, #generate-image, #generate-quote {
+    margin: 10px 0;
+    width: 80%;
 }
 
 .container {
@@ -113,6 +126,24 @@ header {
     color: #ff9800;
 }
 
+.options {
+    text-align: center !important;
+}
+
+.collapsible-header {
+    display: block;
+}
+
+.collapsible-header i {
+    height: 1.75em;
+    line-height: 1.75em;
+    color: white;
+}
+
+.collapsible-body {
+    background: #fff;
+}
+
 .float {
     transform: translatey(0);
     animation: float 1.8s ease-in-out infinite;
@@ -146,4 +177,38 @@ header {
     45% {
         width: 5%
     }
+}
+
+.top-center {
+    position: absolute;
+    top: 0;
+}
+
+.bottom-center {
+    position: absolute;
+    bottom: 0;
+}
+
+.top-left {
+    position: absolute;
+}
+
+.center-left {
+    position: absolute;
+}
+
+.bottom-left {
+    position: absolute;
+}
+
+.top-right {
+    position: absolute;
+}
+
+.center-right {
+    position: absolute;
+}
+
+.bottom-right {
+    position: absolute;
 }
