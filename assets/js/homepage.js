@@ -147,14 +147,6 @@ $(document).ready(function() {
     $('select').formSelect();
  });
 
- 
-
-$('.modal-close').click(function(event){
-    event.preventDefault();
-    chooseFont();
-    location.replace(resultsHTML) 
-
-})
 
 function chooseFont(){
     var fontInput = $("#font option:selected").val();
