@@ -24,7 +24,6 @@ body {
 }
 
 .full-quote {
-    padding: 20px;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 3.5vw;
     color: white;
@@ -178,4 +177,38 @@ header {
     45% {
         width: 5%
     }
+}
+
+.top-center {
+    position: absolute;
+    top: 0;
+}
+
+.bottom-center {
+    position: absolute;
+    bottom: 0;
+}
+
+.top-left {
+    position: absolute;
+}
+
+.center-left {
+    position: absolute;
+}
+
+.bottom-left {
+    position: absolute;
+}
+
+.top-right {
+    position: absolute;
+}
+
+.center-right {
+    position: absolute;
+}
+
+.bottom-right {
+    position: absolute;
 }
