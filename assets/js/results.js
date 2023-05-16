@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var modal = document.querySelectorAll(".modal")
     M.Modal.init(modal)
     });
+
     
 /* Collapisble accordion listerner */
 $(document).ready(function(){
@@ -80,9 +81,13 @@ if(localStorage.getItem('Quote') != null){
     fullAuthor.html(localStorage.getItem('Author'));
     authorEl.append(fullAuthor);
 
+    var font = localStorage.getItem('font-family')
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
+    $(".full-quote").css("font-family", font)
+    $(".full-author").css("font-family", font)
 } else {
+    chooseFont();
     getQuote();
     makeImg();
 }
@@ -93,10 +98,11 @@ randomBtn.click(function() {
     localStorage.removeItem('Quote');
     localStorage.removeItem('Author');
     localStorage.removeItem('posterImage');
-    getQuote();
-    makeImg();
-    clearPoster();
+    localStorage.removeItem('font-family');
     chooseFont();
+    getQuote();
+    makeImg(animal);
+    clearPoster();
 
     var fullQuote = $(".full-quote").html(localStorage.getItem('Quote'));
     quoteEl.append(fullQuote);
@@ -151,15 +157,29 @@ function makeImg(animal) {
     });
 }
 
-makeImg();
-
 function chooseFont(){
-    var fontArray = ["Roboto", "Poppins", "Dancing Script", "Indie Flower", "Soace Mono"]
-    var index = Math.floor(Math.random() * fontArray.length)
-    var font = fontArray[index]
+    // var fontArray = ["Roboto", "Poppins", "Dancing Script", "Indie Flower", "Soace Mono"]
+    // var index = Math.floor(Math.random() * fontArray.length)
+    // var font = fontArray[index]
+    console.log($('#font'))
+    var fontInput = $("#font option:selected").val();
+    var allFonts = $('#font');
 
-    $(".full-quote").css("font-family", font)
-    $(".full-author").css("font-family", font)
+    var fontArray = [];
+    for (var i = 0; i < allFonts.children('#font-style').length; i++){
+        fontArray[i] = allFonts.children('#font-style')[i].value;
+    }
+
+    if(fontInput == '' || localStorage.getItem('font-family') == 'null'){
+        var index = Math.floor(Math.random() * fontArray.length)
+        fontInput = fontArray[index]
+    }
+    console.log(fontArray)
+    console.log(fontInput)
+
+    localStorage.setItem("font-family", fontInput)
+    $(".full-quote").css("font-family", fontInput)
+    $(".full-author").css("font-family", fontInput)
 }
 /* Listener for generate button on the customizable modal to pass values to each function  */
 customizeBtn.click(function() {
@@ -169,9 +189,11 @@ customizeBtn.click(function() {
     var animal = $("#animal").val();
     var theme = $("#theme").val();
     var font = $("#font").val();
+    localStorage.setItem('font-family', font);
     console.log(animal);
     console.log(theme);
     console.log(font);
+    chooseFont();
     makeImg(animal);
     getQuote(theme);
 });
