@@ -79,6 +79,7 @@ var getQuote = function(theme) {
 randomBtn.click(function() {
     console.log("hello");
     const animal = $("animal").val
+    localStorage.removeItem('font-family');
     if(animal){
         chooseFont();
         location.replace(resultsHTML) 

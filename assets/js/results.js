@@ -78,9 +78,9 @@ if(localStorage.getItem('Quote') != null){
     $(".full-quote").css("font-family", font)
     $(".full-author").css("font-family", font)
 } else {
+    chooseFont();
     getQuote();
     makeImg();
-    chooseFont();
 }
 
 
@@ -90,8 +90,8 @@ randomBtn.click(function() {
     localStorage.removeItem('Author');
     localStorage.removeItem('posterImage');
     localStorage.removeItem('font-family');
-    getQuote();
     chooseFont();
+    getQuote();
     makeImg(animal);
     clearPoster();
 
@@ -186,7 +186,7 @@ customizeBtn.click(function() {
     console.log(animal);
     console.log(theme);
     console.log(font);
+    chooseFont();
     makeImg(animal);
     getQuote(theme);
-    chooseFont();
 })
