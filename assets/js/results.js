@@ -1,14 +1,17 @@
-var randomBtn = $('#random-btn')
-var customizeBtn = $('#generate-customized')
+var randomBtn = $('#random-btn');
+var customizeBtn = $('#generate-customized');
+var generateImgBtn = $('#generate-image');
+var generateQuoteBtn = $('#generate-quote');
+var changeFontBtn = $('#change-font');
 var resultsHTML = './results.html'
 var fullQuote = $(".full-quote");
 var fullAuthor = $(".full-author");
-var quoteEl = $('#quote')
-var authorEl = $('#author')
+var quoteEl = $('#quote');
+var authorEl = $('#author');
 var bodyEl = $('body');
-var imageEL = $('#image')
-var divEl = $('#img-container')
-var downloadBtn = $('#download-btn')
+var imageEL = $('#image');
+var divEl = $('#img-container');
+var downloadBtn = $('#download-btn');
 
 /* Initializes Materialize Forms */
 $(document).ready(function() {
@@ -21,6 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var modal = document.querySelectorAll(".modal")
     M.Modal.init(modal)
     });
+
+    
+/* Collapisble accordion listerner */
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
 
 /* Generate quote either randomly or with category based on dropdown input */
 
@@ -148,8 +157,6 @@ function makeImg(animal) {
     });
 }
 
-makeImg();
-
 function chooseFont(){
     // var fontArray = ["Roboto", "Poppins", "Dancing Script", "Indie Flower", "Soace Mono"]
     // var index = Math.floor(Math.random() * fontArray.length)
@@ -189,4 +196,23 @@ customizeBtn.click(function() {
     chooseFont();
     makeImg(animal);
     getQuote(theme);
+});
+
+generateImgBtn.click(function() {
+    localStorage.removeItem('posterImage');
+    var animal = $("#animal").val();
+    makeImg(animal);
+});
+
+generateQuoteBtn.click(function() {
+    localStorage.removeItem('Quote');
+    localStorage.removeItem('Author');
+    var theme = $("#theme").val();
+    getQuote(theme);
+});
+
+changeFontBtn.click(function() {
+    var font = $("#font").val();
+    chooseFont(font);
+    console.log(font);
 })

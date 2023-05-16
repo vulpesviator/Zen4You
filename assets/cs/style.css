@@ -23,10 +23,6 @@ body {
     overflow: hidden;
 }
 
-/* #author {
-    
-} */
-
 .full-quote {
     padding: 20px;
     font-family: 'Gloria Hallelujah', cursive;
@@ -50,6 +46,12 @@ body {
     font-size: 2rem;
 }
 
+#options {
+    padding: 0 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+}
+
 #random-btn {
     margin: 8px 0;
     width: 100%;
@@ -68,6 +70,11 @@ body {
 #generate-customized {
     margin: 8px 0;
     width: 100%;
+}
+
+#change-font, #generate-image, #generate-quote {
+    margin: 10px 0;
+    width: 80%;
 }
 
 .container {
@@ -111,6 +118,20 @@ header {
  
 .dropdown-content li>a, .dropdown-content li>span {
     color: #ff9800;
+}
+
+.options {
+    text-align: center !important;
+}
+
+.collapsible-header i {
+    height: 1.75em;
+    line-height: 1.75em;
+    color: white;
+}
+
+.collapsible-body {
+    background: #fff;
 }
 
 .float {
