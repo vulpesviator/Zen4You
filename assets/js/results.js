@@ -3,6 +3,9 @@ var customizeBtn = $('#generate-customized');
 var generateImgBtn = $('#generate-image');
 var generateQuoteBtn = $('#generate-quote');
 var changeFontBtn = $('#change-font');
+var changePositionBtn = $('#change-position')
+var changeBorderBtn = $('#change-border-color')
+var changeFontColorBtn = $('#change-font-color')
 var resultsHTML = './results.html'
 var fullQuote = $(".full-quote");
 var fullAuthor = $(".full-author");
@@ -215,4 +218,19 @@ changeFontBtn.click(function() {
     var font = $("#font").val();
     chooseFont(font);
     console.log(font);
+})
+
+changePositionBtn.click(function() {
+    var quotePosition = $("#position").val();
+    console.log(font);
+})
+
+changeBorderBtn.click(function() {
+    var borderColor = $("#border-color").val();
+    console.log(borderColor);
+})
+
+changeFontColorBtn.click(function() {
+    var fontColor = $("#font-color").val();
+    console.log(fontColor);
 })
