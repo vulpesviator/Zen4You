@@ -138,7 +138,6 @@ customizeBtn.click(function() {
     var font = $("#font").val();
     makeImg(animal);
     getQuote(theme);
-feature/user-input-on-page
     chooseFont(font);
 
 })
