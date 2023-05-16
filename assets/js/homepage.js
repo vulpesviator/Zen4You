@@ -172,4 +172,17 @@ function chooseFont(){
 }
 // customFont();
 
+// carousel
+var options = ""
+var instance = ""
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, options);
     
+    setInterval(function() {
+ 
+        $('#carousel').carousel('next');
+     
+      }, 1500);   
+});
