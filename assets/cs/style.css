@@ -124,6 +124,10 @@ header {
     text-align: center !important;
 }
 
+.collapsible-header {
+    display: block;
+}
+
 .collapsible-header i {
     height: 1.75em;
     line-height: 1.75em;
