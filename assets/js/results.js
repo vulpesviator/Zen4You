@@ -222,7 +222,9 @@ changeFontBtn.click(function() {
 
 changePositionBtn.click(function() {
     var quotePosition = $("#position").val();
-    console.log(font);
+    
+    $("#quote-container").addClass('bottom-center')
+    console.log(quotePosition);
 })
 
 changeBorderBtn.click(function() {
