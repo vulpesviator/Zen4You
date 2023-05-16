@@ -143,6 +143,7 @@ customizeBtn.click(function() {
     var font = $("#font").val();
     makeImg(animal);
     getQuote(theme);
+    chooseFont(font);
 })
 
 //initializes Materialize forms
