@@ -29,6 +29,11 @@ document.addEventListener("DOMContentLoaded", function() {
     var modal = document.querySelectorAll(".modal")
     M.Modal.init(modal)
     });
+
+/* Collapisble accordion listerner */
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
     
 
 /* Generate quote either randomly or with category based on dropdown input */

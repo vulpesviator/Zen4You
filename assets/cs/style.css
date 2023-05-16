@@ -23,10 +23,6 @@ body {
     overflow: hidden;
 }
 
-/* #author {
-    
-} */
-
 .full-quote {
     padding: 20px;
     font-family: 'Gloria Hallelujah', cursive;
@@ -51,7 +47,7 @@ body {
 }
 
 #options {
-    padding: 40px;
+    padding: 0 0.75rem;
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
 }
@@ -125,8 +121,7 @@ header {
 }
 
 .options {
-    font-size: 0.875em;
-    color: #fff;
+    text-align: center !important;
 }
 
 .collapsible-header i {
