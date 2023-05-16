@@ -68,14 +68,6 @@ var getQuote = function(theme) {
     );
 }
 
-/* Event listener for Generate button and moves to results page */
-// randomBtn.click(function() {
-//     getQuote();
-//     makeImg();
-//     // window.location.replace(resultsHTML);
-//     clearPoster();
-// })
-
 randomBtn.click(function() {
     console.log("hello");
     const animal = $("animal").val
