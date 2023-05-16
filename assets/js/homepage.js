@@ -79,11 +79,11 @@ randomBtn.click(function() {
     localStorage.removeItem('font-family');
     if(animal){
         chooseFont();
-        location.replace(resultsHTML) 
         getQuote()
         makeImg()
         clearPoster();
-        quoteEl.text(localStorage.getItem('quote'))
+        quoteEl.text(localStorage.getItem('quote'));
+        location.replace(resultsHTML); 
     }
 });
 
@@ -139,6 +139,7 @@ customizeBtn.click(function() {
     makeImg(animal);
     getQuote(theme);
     chooseFont(font);
+    location.replace(resultsHTML) 
 
 })
 
@@ -147,14 +148,6 @@ $(document).ready(function() {
     $('select').formSelect();
  });
 
- 
-
-$('.modal-close').click(function(event){
-    event.preventDefault();
-    chooseFont();
-    location.replace(resultsHTML) 
-
-})
 
 function chooseFont(){
     var fontInput = $("#font option:selected").val();
