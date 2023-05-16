@@ -68,13 +68,19 @@ var getQuote = function(theme) {
     );
 }
 
-/* Event listener for Generate button and moves to results page */
 randomBtn.click(function() {
-    getQuote();
-    makeImg();
-    window.location.replace(resultsHTML);
-    clearPoster();
-})
+    console.log("hello");
+    const animal = $("animal").val
+    localStorage.removeItem('font-family');
+    if(animal){
+        chooseFont();
+        location.replace(resultsHTML) 
+        getQuote()
+        makeImg()
+        clearPoster();
+        quoteEl.text(localStorage.getItem('quote'))
+    }
+});
 
 /* Removes previous image and quote from poster div */
 function clearPoster() {
@@ -115,21 +121,10 @@ function makeImg(animal) {
         return response.json();
     })
     .then(function (data) {
+        console.log(data)
         localStorage.setItem('posterImage', data[0]);
     });
 }
-
-randomBtn.click(function() {
-    console.log("hello");
-    const animal = $("animal").val
-    if(animal){
-        chooseFont();
-        location.replace(resultsHTML) 
-        getQuote()
-        makeImg(animal)
-        quoteEl.text(localStorage.getItem('quote'))
-    }
-});
 
 /* Listener for generate button on the customizable modal to pass values to each function  */
 customizeBtn.click(function() {
@@ -138,6 +133,7 @@ customizeBtn.click(function() {
     var font = $("#font").val();
     makeImg(animal);
     getQuote(theme);
+    chooseFont();
 })
 
 //initializes Materialize forms
