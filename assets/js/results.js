@@ -114,13 +114,16 @@ randomBtn.click(function() {
     
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
+
+    fullAuthor.css("color", '#ffffff')
+    fullQuote.css("color", '#ffffff')
+    $('#poster-container').css("border-color", "#000000")
 })
 
 /* Removes previous image and quote from poster div */
 function clearPoster() {
     fullQuote.html("");
     fullAuthor.html("");
-
 }
 
 /* Downloads poster as jpg */
@@ -199,6 +202,8 @@ customizeBtn.click(function() {
     chooseFont();
     makeImg(animal);
     getQuote(theme);
+    changeBorderColor()
+    changeFontColor()
 });
 
 generateImgBtn.click(function() {
@@ -228,15 +233,22 @@ changePositionBtn.click(function() {
 })
 
 changeBorderBtn.click(function() {
-    var borderColor = $("#border-color").val();
-    $('#poster-container').css("border-color", borderColor)
-/*     $('#poster-container').css("border-style", "dotted")
- */    console.log(borderColor);
+    changeBorderColor()
 })
 
+function changeBorderColor() {
+    var borderColor = $("#border-color").val();
+    $('#poster-container').css("border-color", borderColor)
+    console.log(borderColor);
+    }
+
 changeFontColorBtn.click(function() {
+    changeFontColor()
+})
+
+function changeFontColor() {
     var fontColor = $("#font-color").val();
     $('.full-author').css("color", fontColor)
     $('.full-quote').css("color", fontColor)
     console.log(fontColor);
-})
+    }
