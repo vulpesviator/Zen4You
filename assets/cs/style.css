@@ -117,6 +117,16 @@ h1 {
     overflow: visible;
 }
 
+h4 {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 100px;
+}
+
+
 .poster {
     background-repeat: no-repeat;
     background-size: cover;
@@ -225,6 +235,13 @@ h1 {
     position: absolute;
 }
 
+.carousel {
+    height: 50vh;
+    perspective: 1400px;
+}
+
+.carousel {
+    height: 300px;
 @media only screen and (max-width: 600px) {
     nav .brand-logo {
         position: absolute;
