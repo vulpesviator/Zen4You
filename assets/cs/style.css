@@ -1,5 +1,6 @@
 body {
     background-color: #BEF0FE;
+    font-size: 16px;
 }
 
 header {
@@ -24,7 +25,8 @@ h1 {
     position: relative;
     width: 100%;
     height: 50vw;
-    border: 48px solid black;
+    border: 3.5rem solid black;
+    justify-content: center;
 }
 
 #download {
@@ -84,7 +86,7 @@ h1 {
 
 .full-quote {
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 3.5vw;
+    font-size: 3.5rem;
     color: white;
     text-shadow: black 3px 3px 3px;
 }
@@ -94,7 +96,12 @@ h1 {
     text-shadow: black 3px 3px 3px;
     padding-top: 20px;
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 1.25vw;
+    font-size: 1.75rem;
+    font-style: italic;
+}
+
+.full-author::before {
+    content: "\2014\00a0";
 }
 
 .container {
