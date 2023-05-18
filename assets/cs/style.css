@@ -16,16 +16,31 @@ body {
 
 #download {
     margin: 20px 0px solid ;
-    
+
+}
+
+#quote-container {
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    align-items: center;
+    text-align: center;
 }
 
 #quote {
     overflow: hidden;
+    flex-basis: 100%;
+}
+
+
+#author {
+    flex-basis: 100%;
 }
 
 .full-quote {
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 3.5vw;
+    padding-top: 20px;
     color: white;
     text-shadow: black 3px 3px 3px;
 }
@@ -33,7 +48,6 @@ body {
 .full-author {
     color: white;
     text-shadow: black 3px 3px 3px;
-    padding-top: 20px;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 1.25vw;
 }

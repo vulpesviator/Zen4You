@@ -115,6 +115,8 @@ randomBtn.click(function() {
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
 
+    $("#quote-container").css('align-items', 'center')
+    $("#quote-container").css('text-align', 'center')
     fullAuthor.css("color", '#ffffff')
     fullQuote.css("color", '#ffffff')
     $('#poster-container').css("border-color", "#000000")
@@ -203,6 +205,7 @@ customizeBtn.click(function() {
     makeImg(animal);
     getQuote(theme);
     changeBorderColor()
+    changeQuotePosition()
     changeFontColor()
 });
 
@@ -226,11 +229,21 @@ changeFontBtn.click(function() {
 })
 
 changePositionBtn.click(function() {
-    var quotePosition = $("#position").val();
-    
-    $("#quote-container").addClass('bottom-center')
-    console.log(quotePosition);
+    changeQuotePosition()
 })
+
+function changeQuotePosition() {
+    var quoteFlex = $("#position").val();
+    $("#quote-container").css('align-items', quoteFlex)
+    if (quoteFlex === "flex-start") {
+        $("#quote-container").css('text-align', 'left')
+    } else if (quoteFlex === "center") {
+        $("#quote-container").css('text-align', 'center')
+    } else {
+        $("#quote-container").css('text-align', 'right')
+    }     
+    console.log(quoteFlex);
+}
 
 changeBorderBtn.click(function() {
     changeBorderColor()
@@ -238,7 +251,7 @@ changeBorderBtn.click(function() {
 
 function changeBorderColor() {
     var borderColor = $("#border-color").val();
-    $('#poster-container').css("border-color", borderColor)
+    $('#quote-container').css("border-color", borderColor)
     console.log(borderColor);
     }
 

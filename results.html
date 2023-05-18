@@ -41,8 +41,7 @@
         <div>
 
             <!-- Div holds the poster elements -->
-            <div id="poster-container" class="card-panel hoverable poster valign-wrapper">
-                <div class="col s12 center-align">
+            <div id="poster-container" class="card-panel hoverable poster">
                     <div id="quote-container" class="">
                         <div id="quote">
                             <h2 class="full-quote"></h2>
@@ -50,7 +49,6 @@
                         <div id="author">
                             <p class="full-author"></p>
                         </div>
-                    </div>
 
                 </div>
             </div>
@@ -127,17 +125,17 @@
                                         <div class="input-field col s12">
                                             <select id="position">
                                                 <option disabled selected>Select a position</option>
-                                                <option value="Top-left" id="text-position">Random</option>
-                                                <option id="text-position">Top Center</option>
-                                                <option id="text-position">Center Center</option>
-                                                <option id="text-position">Bottom Center</option>
-                                                <option id="text-position">Top Left</option>
+                                                <option value="" id="text-position">Random</option>
+                                                <option value='flex-start' data-align="left" id="text-position">Left</option>
+                                                <option value='center' data-align="center" id="middle">Center</option>
+                                                <option value='flex-end' data-align="right" id="bottom">Right</option>
+<!--                                                 <option id="text-position">Top Left</option>
                                                 <option id="text-position">Center Left</option>
                                                 <option id="text-position">Bottom Left</option>
                                                 <option id="text-position">Top Right</option>
                                                 <option id="text-position">Center Right</option>
                                                 <option id="text-position">Bottom Right</option>
-                                            </select>
+ -->                                            </select>
                                             <label>Quote Position</label>
                                         </div>
                                         <div class="row">
