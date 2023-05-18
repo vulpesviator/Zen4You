@@ -85,6 +85,12 @@ if(localStorage.getItem("QuoteTheme") != null){
     console.log(font)
     console.log(theme)
     console.log(animal)
+    $('#poster-container').css('border', `3.5rem solid ${localStorage.getItem('border-color')}`)
+    $('.full-quote').css('color', `${localStorage.getItem('font-color')}`)
+    $('.full-author').css('color', `${localStorage.getItem('font-color')}`)
+    $("#quote-container").css('align-items', `${localStorage.getItem('flex-align')}`)
+    $("#quote-container").css('text-align', `${localStorage.getItem('text-align')}`)
+
     console.log("homepage")
     chooseFont(font);
     getQuote(theme);
@@ -102,6 +108,12 @@ else if(localStorage.getItem("Quote") != null) {
     $(".poster").css("background-image", `url(${posterImage})`);
     $(".full-quote").css("font-family", font)
     $(".full-author").css("font-family", font)
+    $('#poster-container').css('border', `3.5rem solid ${localStorage.getItem('border-color')}`)
+    $('.full-quote').css('color', `${localStorage.getItem('font-color')}`)
+    $('.full-author').css('color', `${localStorage.getItem('font-color')}`)
+    $("#quote-container").css('align-items', `${localStorage.getItem('flex-align')}`)
+    $("#quote-container").css('text-align', `${localStorage.getItem('text-align')}`)
+
 }
 else{
     console.log("random")
@@ -249,12 +261,16 @@ changePositionBtn.click(function() {
 function changeQuotePosition() {
     var quoteFlex = $("#position").val();
     $("#quote-container").css('align-items', quoteFlex)
+    localStorage.setItem('flex-align', quoteFlex)
     if (quoteFlex === "flex-start") {
         $("#quote-container").css('text-align', 'left')
+        localStorage.setItem('text-align', "left")
     } else if (quoteFlex === "center") {
         $("#quote-container").css('text-align', 'center')
+        localStorage.setItem('text-align', "center")
     } else {
         $("#quote-container").css('text-align', 'right')
+        localStorage.setItem('text-align', "right")
     }     
     console.log(quoteFlex);
 }
@@ -265,7 +281,8 @@ changeBorderBtn.click(function() {
 
 function changeBorderColor() {
     var borderColor = $("#border-color").val();
-    $('#quote-container').css("border-color", borderColor)
+    $('#poster-container').css("border", `3.5rem solid ${borderColor}`)
+    localStorage.setItem('border-color', borderColor)
     console.log(borderColor);
     }
 
@@ -277,5 +294,6 @@ function changeFontColor() {
     var fontColor = $("#font-color").val();
     $('.full-author').css("color", fontColor)
     $('.full-quote').css("color", fontColor)
+    localStorage.setItem('font-color', fontColor)
     console.log(fontColor);
     }

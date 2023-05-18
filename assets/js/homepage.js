@@ -133,6 +133,7 @@ customizeBtn.click(function() {
     chooseFont(font);
     chooseBorderColor()
     chooseFontColor()
+    choosePosition()
     location.replace(resultsHTML) 
 
 })
@@ -162,10 +163,24 @@ function chooseFont(){
 
 // customFont();
 function chooseBorderColor() {
-    localStorage.setItem('Border Color', $('#border-color').val())
+    localStorage.setItem('border-color', $('#border-color').val())
+    console.log("border");
 }
 
 function chooseFontColor() {
-    localStorage.setItem('Font Color', $('#font-color').val())
+    localStorage.setItem('font-color', $('#font-color').val())
+    console.log("color");
+}
+
+function choosePosition() {
+    var quoteFlex = $("#position").val();
+    localStorage.setItem('flex-align', quoteFlex)
+    if (quoteFlex === "flex-start") {
+        localStorage.setItem('text-align', 'left')
+    } else if (quoteFlex === "center") {
+        localStorage.setItem('text-align', 'center')
+    } else {
+        localStorage.setItem('text-align', 'right')
+    }     
 }
    

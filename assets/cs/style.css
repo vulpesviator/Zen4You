@@ -39,6 +39,7 @@ h1 {
     vertical-align: bottom;
     align-items: center;
     text-align: center;
+    padding-top: 10%;
 }
 
 #quote {
@@ -111,7 +112,6 @@ h1 {
 .full-author {
     color: white;
     text-shadow: black 3px 3px 3px;
-    padding-top: 20px;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 1.75rem;
     font-style: italic;
