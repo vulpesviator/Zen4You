@@ -1,5 +1,20 @@
 body {
     background-color: #BEF0FE;
+    font-size: 16px;
+}
+
+header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
 }
 
 #shiba {
@@ -10,34 +25,18 @@ body {
     position: relative;
     width: 100%;
     height: 50vw;
-    border: 48px solid black;
-    margin: 2px solid black;
+    border: 3.5rem solid black;
+    justify-content: center;
 }
 
 #download {
-    margin: 20px 0px solid ;
-    
+    margin: 20px 0px solid;
+
 }
 
 #quote {
     overflow: hidden;
 }
-
-.full-quote {
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 3.5vw;
-    color: white;
-    text-shadow: black 3px 3px 3px;
-}
-
-.full-author {
-    color: white;
-    text-shadow: black 3px 3px 3px;
-    padding-top: 20px;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 1.25vw;
-}
-
 
 #btn-container {
     padding: 40px;
@@ -78,9 +77,31 @@ body {
     width: 100%;
 }
 
-#change-font, #generate-image, #generate-quote {
+#change-font,
+#generate-image,
+#generate-quote {
     margin: 10px 0;
     width: 80%;
+}
+
+.full-quote {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: black 3px 3px 3px;
+}
+
+.full-author {
+    color: white;
+    text-shadow: black 3px 3px 3px;
+    padding-top: 20px;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1.75rem;
+    font-style: italic;
+}
+
+.full-author::before {
+    content: "\2014\00a0";
 }
 
 .container {
@@ -91,16 +112,9 @@ body {
     padding: 0px;
 }
 
-.modal { 
-    max-height: 100%; 
+.modal {
+    max-height: 100%;
     overflow: visible;
-}
-
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 500;
-    text-align: center;
 }
 
 .poster {
@@ -108,21 +122,15 @@ h1 {
     background-size: cover;
     height: 100%;
 }
-  
-header {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 500;
-    text-align: center;
-}
 
-.logo{
+.logo {
     width: 50px;
     height: 50px;
     margin-top: 8px;
 }
- 
-.dropdown-content li>a, .dropdown-content li>span {
+
+.dropdown-content li>a,
+.dropdown-content li>span {
     color: #ff9800;
 }
 
@@ -150,7 +158,9 @@ header {
 }
 
 @keyframes float {
-    0%,100% {
+
+    0%,
+    100% {
         transform: translatey(0)
     }
 
@@ -165,12 +175,14 @@ header {
     height: 6px;
     margin: 9px auto 40px;
     border-radius: 6px;
-    background: rgba(0,0,0,.1);
+    background: rgba(0, 0, 0, .1);
     animation: shadow 1.8s ease-in-out infinite;
 }
 
 @keyframes shadow {
-    0%,100% {
+
+    0%,
+    100% {
         width: 12%
     }
 
@@ -211,4 +223,52 @@ header {
 
 .bottom-right {
     position: absolute;
+}
+
+@media only screen and (max-width: 600px) {
+    nav .brand-logo {
+        position: absolute;
+        left: 0;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    #btn-container {
+        padding: .5rem;
+    }
+
+    #poster-container {
+        background-position: center;
+        width: 100%;
+        height: 80vh;
+        border: 2rem solid black;
+    }
+
+    .logo {
+        margin-top: .125rem;
+    }
+
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    .collapsible-body {
+        padding: .5rem;
+    }
+
+    #options .collapsible-body .row {
+        margin-bottom: 0;
+    }
+
+    #options .collapsible-body .row .l4 {
+        margin-top: 1rem;
+    }
+
+    .full-quote {
+        font-size: 2rem;
+    }
+
+    .full-author {
+        font-size: 1rem;
+    }
 }
