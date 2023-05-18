@@ -19,6 +19,8 @@ var downloadBtn = $('#download-btn');
 /* Initializes Materialize Forms */
 $(document).ready(function() {
     $('select').formSelect();
+    /* Collapisble accordion listerner */
+    $('.collapsible').collapsible();
  });
 
 
@@ -27,12 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var modal = document.querySelectorAll(".modal")
     M.Modal.init(modal)
     });
-
-    
-/* Collapisble accordion listerner */
-$(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
 
 /* Generate quote either randomly or with category based on dropdown input */
 
@@ -71,6 +67,7 @@ var getQuote = function(theme) {
             localStorage.setItem("Author", result[0].author)
             fullAuthor.html(result[0].author);
             authorEl.append(fullAuthor);
+            
         },  
     );
 }
@@ -115,7 +112,7 @@ else if(localStorage.getItem("Quote") != null) {
     $("#quote-container").css('text-align', `${localStorage.getItem('text-align')}`)
 
 }
-else{
+else {
     console.log("random")
     chooseFont(font);
     getQuote(theme);
@@ -297,3 +294,4 @@ function changeFontColor() {
     localStorage.setItem('font-color', fontColor)
     console.log(fontColor);
     }
+
