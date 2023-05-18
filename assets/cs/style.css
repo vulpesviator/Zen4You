@@ -103,6 +103,15 @@ h1 {
     text-align: center;
 }
 
+h4 {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 100px;
+}
+
 .poster {
     background-repeat: no-repeat;
     background-size: cover;
@@ -116,7 +125,7 @@ header {
     text-align: center;
 }
 
-.logo{
+.logo {
     width: 50px;
     height: 50px;
     margin-top: 8px;
@@ -216,4 +225,8 @@ header {
 .carousel {
     height: 50vh;
     perspective: 1400px;
+}
+
+.carousel {
+    height: 300px;
 }
