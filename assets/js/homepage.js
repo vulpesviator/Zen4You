@@ -34,6 +34,20 @@ document.addEventListener("DOMContentLoaded", function() {
 $(document).ready(function(){
     $('.collapsible').collapsible();
   });
+
+/* Carousel javascript */
+$(document).ready(function(){
+    $('.carousel').carousel({
+        padding: 0,
+        shift: 5,
+        indicators: true,
+    });
+    autoplay();
+function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 2000);
+}
+});
     
 
 /* Generate quote either randomly or with category based on dropdown input */
@@ -142,3 +156,4 @@ function chooseFont(){
 
     localStorage.setItem("font-family", fontInput)
 }
+
