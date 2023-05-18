@@ -123,7 +123,11 @@ customizeBtn.click(function() {
     makeImg(animal);
     getQuote(theme);
     chooseFont(font);
+    chooseBorderColor()
+    chooseFontColor()
+    choosePosition()
     location.replace(resultsHTML) 
+
 })
 
 //initializes Materialize forms
@@ -149,3 +153,26 @@ function chooseFont(){
     localStorage.setItem("font-family", fontInput)
 }
 
+// customFont();
+function chooseBorderColor() {
+    localStorage.setItem('border-color', $('#border-color').val())
+    console.log("border");
+}
+
+function chooseFontColor() {
+    localStorage.setItem('font-color', $('#font-color').val())
+    console.log("color");
+}
+
+function choosePosition() {
+    var quoteFlex = $("#position").val();
+    localStorage.setItem('flex-align', quoteFlex)
+    if (quoteFlex === "flex-start") {
+        localStorage.setItem('text-align', 'left')
+    } else if (quoteFlex === "center") {
+        localStorage.setItem('text-align', 'center')
+    } else {
+        localStorage.setItem('text-align', 'right')
+    }     
+}
+   

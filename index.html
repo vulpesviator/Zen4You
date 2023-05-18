@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Gloria+Hallelujah&family=Indie+Flower&family=Roboto:wght@100&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Castoro+Titling&family=Dancing+Script&family=Dela+Gothic+One&family=Gloria+Hallelujah&family=Indie+Flower&family=Permanent+Marker&family=Pirata+One&family=Rampart+One&family=Roboto:wght@100&family=Space+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -83,18 +83,44 @@
                                         <select id="font">
                                             <option value="" disabled selected>Select a font</option>
                                             <option value="" id="font-style">Random</option>
-                                            <option value="serif" id="font-style">Serif</option>
                                             <option value="sans serif" id="font-style">Sans Serif</option>
-                                            <option value="handwriting" id="font-style">Handwriting</option>
-                                            <option value="display" id="font-style">Display</option>
+                                            <option value="Permanent Marker" id="font-style">Permanent Marker</option>
+                                            <option value="Bruno Ace" id="font-style">Bruno Ace</option>
+                                            <option value="Castoro Titling" id="font-style">Castoro Titling</option>
                                             <option value="monospace" id="font-style">Monospace</option>
-                                            <option value="Roboto" id="font-style">Roboto</option>
+                                            <option value="Pirata One" id="font-style">Pirata One</option>
                                             <option value="Poppins" id="font-style">Poppins</option>
                                             <option value="Dancing Script" id="font-style">Dancing Script</option>
                                             <option value="Indie Flower" id="font-style">Indie Flower</option>
                                             <option value="Comic Sans MS" id="font-style">Comic Sans</option>
                                         </select>
                                         <label>Fonts</label>
+                                    </div>
+                                </div>
+                                  <div class="col s4">
+                                    <div class="input-field col s12">
+                                        <select id="position">
+                                            <option disabled selected>Select a position</option>
+                                            <option value="" id="text-position">Random</option>
+                                            <option value='flex-start' data-align="left">Left</option>
+                                            <option value='center' data-align="center">Center</option>
+                                            <option value='flex-end' data-align="right">Right</option>
+                                    </select>
+                                        <label>Quote Position</label>
+                                    </div>
+                                </div>
+                                <div class="col s4">
+                                    <h6>Border Color</h6>
+                                    <div class="input-field col s12">
+                                        <input type="color" id="border-color">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col s4">
+                                    <h6>Font Color</h6>
+                                    <div class="input-field col s12">
+                                        <input type="color" id="font-color">
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +156,7 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title">Amadeus Machuca</span>
-                  <p>I am a very simple card. I am good at containing small bits of information.</p>
+                  <p>A pastry chef, a bartender, and a Michilin Star cook, Amadeus in latin means "loved by God" (He does not love Him back).</p>
                 </div>
               </div>
             </div>

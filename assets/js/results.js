@@ -82,6 +82,12 @@ if(localStorage.getItem("QuoteTheme") != null){
     console.log(font)
     console.log(theme)
     console.log(animal)
+    $('#poster-container').css('border', `3.5rem solid ${localStorage.getItem('border-color')}`)
+    $('.full-quote').css('color', `${localStorage.getItem('font-color')}`)
+    $('.full-author').css('color', `${localStorage.getItem('font-color')}`)
+    $("#quote-container").css('align-items', `${localStorage.getItem('flex-align')}`)
+    $("#quote-container").css('text-align', `${localStorage.getItem('text-align')}`)
+
     console.log("homepage")
     chooseFont(font);
     getQuote(theme);
@@ -99,6 +105,12 @@ else if(localStorage.getItem("Quote") != null) {
     $(".poster").css("background-image", `url(${posterImage})`);
     $(".full-quote").css("font-family", font)
     $(".full-author").css("font-family", font)
+    $('#poster-container').css('border', `3.5rem solid ${localStorage.getItem('border-color')}`)
+    $('.full-quote').css('color', `${localStorage.getItem('font-color')}`)
+    $('.full-author').css('color', `${localStorage.getItem('font-color')}`)
+    $("#quote-container").css('align-items', `${localStorage.getItem('flex-align')}`)
+    $("#quote-container").css('text-align', `${localStorage.getItem('text-align')}`)
+
 }
 else {
     console.log("random")
@@ -126,13 +138,18 @@ randomBtn.click(function() {
     
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
+
+    $("#quote-container").css('align-items', 'center')
+    $("#quote-container").css('text-align', 'center')
+    fullAuthor.css("color", '#ffffff')
+    fullQuote.css("color", '#ffffff')
+    $('#poster-container').css("border-color", "#000000")
 })
 
 /* Removes previous image and quote from poster div */
 function clearPoster() {
     fullQuote.html("");
     fullAuthor.html("");
-
 }
 
 /* Downloads poster as jpg */
@@ -209,6 +226,9 @@ customizeBtn.click(function() {
     chooseFont(font);
     makeImg(animal);
     getQuote(theme);
+    changeBorderColor()
+    changeQuotePosition()
+    changeFontColor()
 });
 
 generateImgBtn.click(function() {
@@ -232,22 +252,46 @@ changeFontBtn.click(function() {
 })
 
 changePositionBtn.click(function() {
-    var quotePosition = $("#position").val();
-    
-    $("#quote-container").addClass('bottom-center')
-    console.log(quotePosition);
+    changeQuotePosition()
 })
+
+function changeQuotePosition() {
+    var quoteFlex = $("#position").val();
+    $("#quote-container").css('align-items', quoteFlex)
+    localStorage.setItem('flex-align', quoteFlex)
+    if (quoteFlex === "flex-start") {
+        $("#quote-container").css('text-align', 'left')
+        localStorage.setItem('text-align', "left")
+    } else if (quoteFlex === "center") {
+        $("#quote-container").css('text-align', 'center')
+        localStorage.setItem('text-align', "center")
+    } else {
+        $("#quote-container").css('text-align', 'right')
+        localStorage.setItem('text-align', "right")
+    }     
+    console.log(quoteFlex);
+}
 
 changeBorderBtn.click(function() {
-    var borderColor = $("#border-color").val();
-    $('#poster-container').css("border-color", borderColor)
-/*     $('#poster-container').css("border-style", "dotted")
- */    console.log(borderColor);
+    changeBorderColor()
 })
 
+function changeBorderColor() {
+    var borderColor = $("#border-color").val();
+    $('#poster-container').css("border", `3.5rem solid ${borderColor}`)
+    localStorage.setItem('border-color', borderColor)
+    console.log(borderColor);
+    }
+
 changeFontColorBtn.click(function() {
+    changeFontColor()
+})
+
+function changeFontColor() {
     var fontColor = $("#font-color").val();
     $('.full-author').css("color", fontColor)
     $('.full-quote').css("color", fontColor)
+    localStorage.setItem('font-color', fontColor)
     console.log(fontColor);
-})
+    }
+
