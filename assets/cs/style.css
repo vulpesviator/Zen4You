@@ -92,8 +92,7 @@ body {
 }
 
 .modal { 
-    max-height: 100%; 
-    overflow: visible;
+    overflow-y: auto !important;
 }
 
 h1 {
