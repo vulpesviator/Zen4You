@@ -22,7 +22,20 @@ Before you go, click the About button in the top left corner to meet the team. :
 
 # Credits
 https://materializecss.com/
+
 https://api.jquery.com/
+
 https://fonts.google.com/
+
 https://api.api-ninjas.com/v1/quotes
+
 http://shibe.online/api/shibes
+
+#Authors
+https://github.com/vulpesviator
+
+https://github.com/saratam8
+
+https://github.com/microvac23
+
+https://github.com/jrdnwlkr
