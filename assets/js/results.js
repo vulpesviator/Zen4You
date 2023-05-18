@@ -3,6 +3,9 @@ var customizeBtn = $('#generate-customized');
 var generateImgBtn = $('#generate-image');
 var generateQuoteBtn = $('#generate-quote');
 var changeFontBtn = $('#change-font');
+var changePositionBtn = $('#change-position')
+var changeBorderBtn = $('#change-border-color')
+var changeFontColorBtn = $('#change-font-color')
 var resultsHTML = './results.html'
 var fullQuote = $(".full-quote");
 var fullAuthor = $(".full-author");
@@ -16,6 +19,8 @@ var downloadBtn = $('#download-btn');
 /* Initializes Materialize Forms */
 $(document).ready(function() {
     $('select').formSelect();
+    /* Collapisble accordion listerner */
+    $('.collapsible').collapsible();
  });
 
 
@@ -24,12 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var modal = document.querySelectorAll(".modal")
     M.Modal.init(modal)
     });
-
-    
-/* Collapisble accordion listerner */
-$(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
 
 /* Generate quote either randomly or with category based on dropdown input */
 
@@ -62,12 +61,13 @@ var getQuote = function(theme) {
         headers: { 'X-Api-Key': 'v0tccXcwsiP+3vSXv3/lOg==q1GzyzemvaKPl4ad'},
         contentType: 'application/json',
     }).then(function(result) {
-            localStorage.setItem('Quote', result[0].quote)
+            localStorage.setItem("Quote", result[0].quote)
             fullQuote.html(result[0].quote);
             quoteEl.append(fullQuote);
-            localStorage.setItem('Author', result[0].author)
+            localStorage.setItem("Author", result[0].author)
             fullAuthor.html(result[0].author);
             authorEl.append(fullAuthor);
+            
         },  
     );
 }
@@ -75,7 +75,26 @@ var getQuote = function(theme) {
 /* Function which appends a different font-family to the .full-quote and .full-author classes based on dropdown value */
 
 /* Displays quote and image saved in local storage */
-if(localStorage.getItem('Quote') != null){
+if(localStorage.getItem("QuoteTheme") != null){
+    var animal = localStorage.getItem('posterImage')
+    var theme = localStorage.getItem('QuoteTheme')
+    var font = localStorage.getItem('font-family')
+    console.log(font)
+    console.log(theme)
+    console.log(animal)
+    $('#poster-container').css('border', `3.5rem solid ${localStorage.getItem('border-color')}`)
+    $('.full-quote').css('color', `${localStorage.getItem('font-color')}`)
+    $('.full-author').css('color', `${localStorage.getItem('font-color')}`)
+    $("#quote-container").css('align-items', `${localStorage.getItem('flex-align')}`)
+    $("#quote-container").css('text-align', `${localStorage.getItem('text-align')}`)
+
+    console.log("homepage")
+    chooseFont(font);
+    getQuote(theme);
+    makeImg(animal);
+    localStorage.removeItem('QuoteTheme')
+}
+else if(localStorage.getItem("Quote") != null) {
     fullQuote.html(localStorage.getItem('Quote'));
     quoteEl.append(fullQuote);
     fullAuthor.html(localStorage.getItem('Author'));
@@ -86,10 +105,18 @@ if(localStorage.getItem('Quote') != null){
     $(".poster").css("background-image", `url(${posterImage})`);
     $(".full-quote").css("font-family", font)
     $(".full-author").css("font-family", font)
-} else {
-    chooseFont();
-    getQuote();
-    makeImg();
+    $('#poster-container').css('border', `3.5rem solid ${localStorage.getItem('border-color')}`)
+    $('.full-quote').css('color', `${localStorage.getItem('font-color')}`)
+    $('.full-author').css('color', `${localStorage.getItem('font-color')}`)
+    $("#quote-container").css('align-items', `${localStorage.getItem('flex-align')}`)
+    $("#quote-container").css('text-align', `${localStorage.getItem('text-align')}`)
+
+}
+else {
+    console.log("random")
+    chooseFont(font);
+    getQuote(theme);
+    makeImg(animal);
 }
 
 
@@ -111,13 +138,18 @@ randomBtn.click(function() {
     
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
+
+    $("#quote-container").css('align-items', 'center')
+    $("#quote-container").css('text-align', 'center')
+    fullAuthor.css("color", '#ffffff')
+    fullQuote.css("color", '#ffffff')
+    $('#poster-container').css("border-color", "#000000")
 })
 
 /* Removes previous image and quote from poster div */
 function clearPoster() {
     fullQuote.html("");
     fullAuthor.html("");
-
 }
 
 /* Downloads poster as jpg */
@@ -157,12 +189,9 @@ function makeImg(animal) {
     });
 }
 
-function chooseFont(){
-    // var fontArray = ["Roboto", "Poppins", "Dancing Script", "Indie Flower", "Soace Mono"]
-    // var index = Math.floor(Math.random() * fontArray.length)
-    // var font = fontArray[index]
-    console.log($('#font'))
-    var fontInput = $("#font option:selected").val();
+function chooseFont(font){
+    // console.log($('#font'))
+    // var fontInput = $("#font option:selected").val();
     var allFonts = $('#font');
 
     var fontArray = [];
@@ -170,12 +199,13 @@ function chooseFont(){
         fontArray[i] = allFonts.children('#font-style')[i].value;
     }
 
-    if(fontInput == '' || localStorage.getItem('font-family') == 'null'){
+    if(font){
+        fontInput = localStorage.getItem("font-family")
+    }
+    else{
         var index = Math.floor(Math.random() * fontArray.length)
         fontInput = fontArray[index]
     }
-    console.log(fontArray)
-    console.log(fontInput)
 
     localStorage.setItem("font-family", fontInput)
     $(".full-quote").css("font-family", fontInput)
@@ -193,9 +223,12 @@ customizeBtn.click(function() {
     console.log(animal);
     console.log(theme);
     console.log(font);
-    chooseFont();
+    chooseFont(font);
     makeImg(animal);
     getQuote(theme);
+    changeBorderColor()
+    changeQuotePosition()
+    changeFontColor()
 });
 
 generateImgBtn.click(function() {
@@ -213,6 +246,52 @@ generateQuoteBtn.click(function() {
 
 changeFontBtn.click(function() {
     var font = $("#font").val();
+    localStorage.setItem('font-family', font);
     chooseFont(font);
     console.log(font);
 })
+
+changePositionBtn.click(function() {
+    changeQuotePosition()
+})
+
+function changeQuotePosition() {
+    var quoteFlex = $("#position").val();
+    $("#quote-container").css('align-items', quoteFlex)
+    localStorage.setItem('flex-align', quoteFlex)
+    if (quoteFlex === "flex-start") {
+        $("#quote-container").css('text-align', 'left')
+        localStorage.setItem('text-align', "left")
+    } else if (quoteFlex === "center") {
+        $("#quote-container").css('text-align', 'center')
+        localStorage.setItem('text-align', "center")
+    } else {
+        $("#quote-container").css('text-align', 'right')
+        localStorage.setItem('text-align', "right")
+    }     
+    console.log(quoteFlex);
+}
+
+changeBorderBtn.click(function() {
+    changeBorderColor()
+})
+
+function changeBorderColor() {
+    var borderColor = $("#border-color").val();
+    $('#poster-container').css("border", `3.5rem solid ${borderColor}`)
+    localStorage.setItem('border-color', borderColor)
+    console.log(borderColor);
+    }
+
+changeFontColorBtn.click(function() {
+    changeFontColor()
+})
+
+function changeFontColor() {
+    var fontColor = $("#font-color").val();
+    $('.full-author').css("color", fontColor)
+    $('.full-quote').css("color", fontColor)
+    localStorage.setItem('font-color', fontColor)
+    console.log(fontColor);
+    }
+

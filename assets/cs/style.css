@@ -1,5 +1,29 @@
 body {
-    background-color: #BEF0FE;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 100px;
 }
 
 #shiba {
@@ -10,38 +34,49 @@ body {
     position: relative;
     width: 100%;
     height: 50vw;
-    border: 48px solid black;
-    margin: 2px solid black;
+    border: 3rem solid black;
+    justify-content: center;
+    margin: 2rem auto;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    max-width: 900px;
 }
 
 #download {
     margin: 20px 0px solid ;
-    
+}
+
+#quote-container {
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    align-items: center;
+    text-align: center;
+    padding-top: 10%;
 }
 
 #quote {
     overflow: hidden;
+    flex-basis: 100%;
 }
 
-.full-quote {
-    padding: 20px;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 3.5vw;
-    color: white;
-    text-shadow: black 3px 3px 3px;
-}
 
-.full-author {
-    color: white;
-    text-shadow: black 3px 3px 3px;
-    padding-top: 20px;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 1.25vw;
+#author {
+    flex-basis: 100%;
 }
-
 
 #btn-container {
     padding: 40px;
+    margin-top: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, .15);
+}
+
+#options-container {
+    padding-top: 5rem;
+    margin-bottom: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
 }
@@ -55,6 +90,7 @@ body {
 #random-btn {
     margin: 8px 0;
     width: 100%;
+    display: inline-block;
 }
 
 #customize-btn {
@@ -65,6 +101,7 @@ body {
 #download-btn {
     margin: 8px 0;
     width: 100%;
+    display: inline-block;
 }
 
 #generate-customized {
@@ -72,13 +109,38 @@ body {
     width: 100%;
 }
 
-#change-font, #generate-image, #generate-quote {
+#change-font,
+#generate-image,
+#generate-quote {
     margin: 10px 0;
     width: 80%;
 }
 
+.btn-large {
+    font-size: 1.25rem;
+}
+
+.full-quote {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: black 3px 3px 3px;
+}
+
+.full-author {
+    color: white;
+    text-shadow: black 3px 3px 3px;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1.75rem;
+    font-style: italic;
+}
+
+.full-author::before {
+    content: "\2014\00a0";
+}
+
 .container {
-    background-color: #BEF0FE;
+    background-color: #fff;
 }
 
 .card {
@@ -86,15 +148,7 @@ body {
 }
 
 .modal { 
-    max-height: 100%; 
-    overflow: visible;
-}
-
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 500;
-    text-align: center;
+    overflow-y: auto !important;
 }
 
 .poster {
@@ -102,26 +156,24 @@ h1 {
     background-size: cover;
     height: 100%;
 }
-  
-header {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 500;
-    text-align: center;
-}
 
-.logo{
+.logo {
     width: 50px;
     height: 50px;
     margin-top: 8px;
 }
- 
-.dropdown-content li>a, .dropdown-content li>span {
+
+.dropdown-content li>a,
+.dropdown-content li>span {
     color: #ff9800;
 }
 
 .options {
     text-align: center !important;
+}
+
+.collapsible-header {
+    display: block;
 }
 
 .collapsible-header i {
@@ -134,13 +186,28 @@ header {
     background: #fff;
 }
 
+.carousel {
+    height: 50vh;
+    perspective: 1400px;
+}
+
+.carousel {
+    height: 300px;
+}
+
+.carousel .carousel-item>img {
+    transform: scale(160%);
+}
+
 .float {
     transform: translatey(0);
     animation: float 1.8s ease-in-out infinite;
 }
 
 @keyframes float {
-    0%,100% {
+
+    0%,
+    100% {
         transform: translatey(0)
     }
 
@@ -155,16 +222,72 @@ header {
     height: 6px;
     margin: 9px auto 40px;
     border-radius: 6px;
-    background: rgba(0,0,0,.1);
+    background: rgba(0, 0, 0, .1);
     animation: shadow 1.8s ease-in-out infinite;
 }
 
 @keyframes shadow {
-    0%,100% {
+
+    0%,
+    100% {
         width: 12%
     }
 
     45% {
         width: 5%
+    }
+}
+
+.carousel {
+    height: 50vh;
+    perspective: 1400px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    nav .brand-logo {
+        position: absolute;
+        left: 0;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    #btn-container {
+        padding: .5rem;
+    }
+
+    #poster-container {
+        background-position: center;
+        width: 100%;
+        height: 80vh;
+        border: 2rem solid black;
+    }
+
+    .logo {
+        margin-top: .125rem;
+    }
+
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    .collapsible-body {
+        padding: .5rem;
+    }
+
+    #options .collapsible-body .row {
+        margin-bottom: 0;
+    }
+
+    #options .collapsible-body .row .l4 {
+        margin-top: 1rem;
+    }
+
+    .full-quote {
+        font-size: 2rem;
+    }
+
+    .full-author {
+        font-size: 1rem;
     }
 }
