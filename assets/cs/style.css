@@ -84,6 +84,10 @@ h1 {
     width: 80%;
 }
 
+.btn-large {
+    font-size: 1.25rem;
+}
+
 .full-quote {
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 3.5rem;
