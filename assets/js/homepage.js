@@ -59,32 +59,17 @@ var getQuote = function(theme) {
         category = categories[categoryKeys[randomIndex]];
     }
 
-    $.ajax({
-        method: 'GET',
-        url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
-        headers: { 'X-Api-Key': 'v0tccXcwsiP+3vSXv3/lOg==q1GzyzemvaKPl4ad'},
-        contentType: 'application/json',
-    }).then(function(result) {
-            localStorage.setItem('Quote', result[0].quote)
-            
-            localStorage.setItem('Author', result[0].author)
-           
-        },  
-    );
+    localStorage.setItem("QuoteTheme", theme)
 }
 
 randomBtn.click(function() {
     console.log("hello");
     const animal = $("animal").val
+    localStorage.removeItem('Quote');
+    localStorage.removeItem('Author');
+    localStorage.removeItem('posterImage');
     localStorage.removeItem('font-family');
-    if(animal){
-        chooseFont();
-        getQuote()
-        makeImg()
-        clearPoster();
-        quoteEl.text(localStorage.getItem('quote'));
-        location.replace(resultsHTML); 
-    }
+    location.replace(resultsHTML)  
 });
 
 /* Removes previous image and quote from poster div */
@@ -110,7 +95,7 @@ function makeImg(animal) {
         birds: "https://shibe.online/api/birds?count=1&urls=true&httpsUrls=true",
         cats: "https://shibe.online/api/cats?count=1&urls=true&httpsUrls=true",
     };
-
+    
     var generateImg;
     if (animal && backgroundImg[animal]) {
         generateImg = backgroundImg[animal];
@@ -121,22 +106,11 @@ function makeImg(animal) {
         generateImg = backgroundImg[randomImg];
     }
 
-    fetch(generateImg)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data)
-        localStorage.setItem('posterImage', data[0]);
-    });
+    localStorage.setItem("posterImage", animal);
 }
 
 /* Listener for generate button on the customizable modal to pass values to each function  */
 customizeBtn.click(function() {
-    localStorage.removeItem('Quote');
-    localStorage.removeItem('Author');
-    localStorage.removeItem('posterImage');
-    localStorage.removeItem('font-family');
     var animal = $("#animal").val();
     var theme = $("#theme").val();
     var font = $("#font").val();
@@ -144,7 +118,6 @@ customizeBtn.click(function() {
     getQuote(theme);
     chooseFont(font);
     location.replace(resultsHTML) 
-
 })
 
 //initializes Materialize forms
@@ -162,13 +135,12 @@ function chooseFont(){
         fontArray[i] = allFonts.children('#font-style')[i].value;
     }
 
-    if(fontInput == ''){
+    if(fontInput == '' || localStorage.getItem('font-family') == 'null' || fontInput == "Random"){
         var index = Math.floor(Math.random() * fontArray.length)
         fontInput = fontArray[index]
     }
 
     localStorage.setItem("font-family", fontInput)
 }
-// customFont();
 
     
