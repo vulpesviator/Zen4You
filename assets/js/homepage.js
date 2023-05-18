@@ -1,11 +1,3 @@
-// pseudo code
-
-// User clicks randomizer button
-// Page is redirected to results html
-// Displayed is a random picture from shibe api and a random quote from zenquotes api
-// CSS styles pictures and text
-// Bonus: User has the option to download
-// Bonus: User can select fonts (Google Fonts), borders (materialize), colors (materialize), etc.
 var randomBtn = $('#random-btn')
 var customizeBtn = $('#generate-customized')
 var resultsHTML = './results.html'
