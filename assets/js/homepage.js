@@ -131,7 +131,10 @@ customizeBtn.click(function() {
     makeImg(animal);
     getQuote(theme);
     chooseFont(font);
+    chooseBorderColor()
+    chooseFontColor()
     location.replace(resultsHTML) 
+
 })
 
 //initializes Materialize forms
@@ -157,3 +160,12 @@ function chooseFont(){
     localStorage.setItem("font-family", fontInput)
 }
 
+// customFont();
+function chooseBorderColor() {
+    localStorage.setItem('Border Color', $('#border-color').val())
+}
+
+function chooseFontColor() {
+    localStorage.setItem('Font Color', $('#font-color').val())
+}
+   

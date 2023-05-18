@@ -30,12 +30,25 @@ h1 {
 }
 
 #download {
-    margin: 20px 0px solid;
+    margin: 20px 0px solid ;
+}
 
+#quote-container {
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    align-items: center;
+    text-align: center;
 }
 
 #quote {
     overflow: hidden;
+    flex-basis: 100%;
+}
+
+
+#author {
+    flex-basis: 100%;
 }
 
 #btn-container {
@@ -202,40 +215,6 @@ h4 {
     45% {
         width: 5%
     }
-}
-
-.top-center {
-    position: absolute;
-    top: 0;
-}
-
-.bottom-center {
-    position: absolute;
-    bottom: 0;
-}
-
-.top-left {
-    position: absolute;
-}
-
-.center-left {
-    position: absolute;
-}
-
-.bottom-left {
-    position: absolute;
-}
-
-.top-right {
-    position: absolute;
-}
-
-.center-right {
-    position: absolute;
-}
-
-.bottom-right {
-    position: absolute;
 }
 
 .carousel {

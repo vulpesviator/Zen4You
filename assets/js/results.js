@@ -129,13 +129,18 @@ randomBtn.click(function() {
     
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
+
+    $("#quote-container").css('align-items', 'center')
+    $("#quote-container").css('text-align', 'center')
+    fullAuthor.css("color", '#ffffff')
+    fullQuote.css("color", '#ffffff')
+    $('#poster-container').css("border-color", "#000000")
 })
 
 /* Removes previous image and quote from poster div */
 function clearPoster() {
     fullQuote.html("");
     fullAuthor.html("");
-
 }
 
 /* Downloads poster as jpg */
@@ -212,6 +217,9 @@ customizeBtn.click(function() {
     chooseFont(font);
     makeImg(animal);
     getQuote(theme);
+    changeBorderColor()
+    changeQuotePosition()
+    changeFontColor()
 });
 
 generateImgBtn.click(function() {
@@ -235,22 +243,39 @@ changeFontBtn.click(function() {
 })
 
 changePositionBtn.click(function() {
-    var quotePosition = $("#position").val();
-    
-    $("#quote-container").addClass('bottom-center')
-    console.log(quotePosition);
+    changeQuotePosition()
 })
+
+function changeQuotePosition() {
+    var quoteFlex = $("#position").val();
+    $("#quote-container").css('align-items', quoteFlex)
+    if (quoteFlex === "flex-start") {
+        $("#quote-container").css('text-align', 'left')
+    } else if (quoteFlex === "center") {
+        $("#quote-container").css('text-align', 'center')
+    } else {
+        $("#quote-container").css('text-align', 'right')
+    }     
+    console.log(quoteFlex);
+}
 
 changeBorderBtn.click(function() {
-    var borderColor = $("#border-color").val();
-    $('#poster-container').css("border-color", borderColor)
-/*     $('#poster-container').css("border-style", "dotted")
- */    console.log(borderColor);
+    changeBorderColor()
 })
 
+function changeBorderColor() {
+    var borderColor = $("#border-color").val();
+    $('#quote-container').css("border-color", borderColor)
+    console.log(borderColor);
+    }
+
 changeFontColorBtn.click(function() {
+    changeFontColor()
+})
+
+function changeFontColor() {
     var fontColor = $("#font-color").val();
     $('.full-author').css("color", fontColor)
     $('.full-quote').css("color", fontColor)
     console.log(fontColor);
-})
+    }
