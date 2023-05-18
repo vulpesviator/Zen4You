@@ -67,10 +67,13 @@ var getQuote = function(theme) {
     }).then(function(result) {
             localStorage.setItem("Quote", result[0].quote)
             fullQuote.html(result[0].quote);
+            fullQuote.fitText(1.2, {minFontSize: '12px', maxFontSize: "80px"});
             quoteEl.append(fullQuote);
             localStorage.setItem("Author", result[0].author)
             fullAuthor.html(result[0].author);
+            fullAuthor.fitText(1.2, {minFontSize: '12px', maxFontSize: '40px'});
             authorEl.append(fullAuthor);
+            
         },  
     );
 }
@@ -93,8 +96,10 @@ if(localStorage.getItem("QuoteTheme") != null){
 }
 else if(localStorage.getItem("Quote") != null) {
     fullQuote.html(localStorage.getItem('Quote'));
+    fullQuote.fitText(1.2, {minFontSize: '12px', maxFontSize: "80px"});
     quoteEl.append(fullQuote);
     fullAuthor.html(localStorage.getItem('Author'));
+    fullAuthor.fitText(1.2, {minFontSize: '12px', maxFontSize: '40px'});
     authorEl.append(fullAuthor);
 
     var font = localStorage.getItem('font-family')
@@ -103,7 +108,7 @@ else if(localStorage.getItem("Quote") != null) {
     $(".full-quote").css("font-family", font)
     $(".full-author").css("font-family", font)
 }
-else{
+else {
     console.log("random")
     chooseFont(font);
     getQuote(theme);
@@ -126,6 +131,9 @@ randomBtn.click(function() {
     quoteEl.append(fullQuote);
     var fullAuthor = $(".full-author").html(localStorage.getItem('Author'));
     authorEl.append(fullAuthor);
+    
+    fullQuote.fitText(1.2, {minFontSize: '12px', maxFontSize: "80px"});
+    fullAuthor.fitText(1.2, {minFontSize: '12px', maxFontSize: "40px"});
     
     var posterImage = localStorage.getItem('posterImage');
     $(".poster").css("background-image", `url(${posterImage})`);
@@ -254,3 +262,5 @@ changeFontColorBtn.click(function() {
     $('.full-quote').css("color", fontColor)
     console.log(fontColor);
 })
+
+
