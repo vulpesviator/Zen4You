@@ -142,5 +142,3 @@ function chooseFont(){
 
     localStorage.setItem("font-family", fontInput)
 }
-
-    
