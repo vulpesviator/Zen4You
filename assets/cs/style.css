@@ -36,11 +36,6 @@ h4 {
     height: 50vw;
     border: 3rem solid black;
     justify-content: center;
-    margin: 2rem auto;
-    overflow: hidden;
-    white-space: normal;
-    text-overflow: ellipsis;
-    max-width: 900px;
 }
 
 #download {
@@ -57,8 +52,12 @@ h4 {
 }
 
 #quote {
-    overflow: hidden;
     flex-basis: 100%;
+    margin: 2rem auto;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    max-width: 900px;
 }
 
 
