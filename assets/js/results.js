@@ -164,7 +164,6 @@ function clearPoster() {
 
 /* Downloads poster as jpg */
 downloadBtn.click(function () {
-  console.log("hrllo");
   domtoimage
     .toBlob(document.getElementById("poster-container"))
     .then(function (blob) {
