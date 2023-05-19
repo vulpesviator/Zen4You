@@ -53,6 +53,11 @@ h4 {
 
 #quote {
     flex-basis: 100%;
+    margin: 2rem auto;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    max-width: 900px;
 }
 
 
