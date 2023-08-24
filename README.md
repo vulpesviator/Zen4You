@@ -1,6 +1,9 @@
 # Name
 Zen4You
 
+![zen-4-you](https://github.com/vulpesviator/Zen4You/assets/123843930/7eeee326-2ebb-4cb9-bd99-7359007c043d)
+
+
 # Description
 Zen4U is an application that provides the user with a random or customized motivational poster. This is done by combining an image of an animal with a famous quote, both of which are obtained through by using Javascript to connect to two third-party APIs. 
 
